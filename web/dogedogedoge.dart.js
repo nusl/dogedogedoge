@@ -5662,19 +5662,28 @@ clickEvent: function(me) {
 }},
 1],
 ["imageList", "classes/ImageList.dart", , U, {
-ImageList: {"": "Object;imageNames"}}],
+ImageList: {"": "Object;imageNames",
+  ImageList$0: function() {
+    var t1 = this.imageNames;
+    t1.push("dogeOne");
+    t1.push("dogeTwo");
+    t1.push("dogeThree");
+  },
+  static: {
+ImageList$: function() {
+  var t1 = P.List_List(null, J.JSString);
+  H.setRuntimeTypeInfo(t1, [J.JSString]);
+  t1 = new U.ImageList(t1);
+  t1.ImageList$0();
+  return t1;
+}}
+
+}}],
 ["pound", "classes/Pound.dart", , A, {
 Pound: {"": "Object;items",
   addNew$0: function() {
-    var t1, t2;
-    t1 = P.List_List(null, J.JSString);
-    H.setRuntimeTypeInfo(t1, [J.JSString]);
-    t1 = new U.ImageList(t1);
-    t2 = t1.imageNames;
-    t2.push("dogeOne");
-    t2.push("dogeTwo");
-    t2 = this.items;
-    t2.push(new Z.DogeFactory(t1).createDoge$1(t2.length));
+    var t1 = this.items;
+    t1.push(new Z.DogeFactory(U.ImageList$()).createDoge$1(t1.length));
   },
   update$1: function(ctx) {
     var t1;
@@ -5683,20 +5692,14 @@ Pound: {"": "Object;items",
   },
   Pound$withDoges$1: function(howManyDoges) {
     var t1, t2, i, max, t3, t4, t5, t6;
-    t1 = P.List_List(null, J.JSString);
-    H.setRuntimeTypeInfo(t1, [J.JSString]);
-    t1 = new U.ImageList(t1);
-    t2 = t1.imageNames;
-    t2.push("dogeOne");
-    t2.push("dogeTwo");
-    for (t2 = this.items, t1 = new Z.DogeFactory(t1).images.imageNames, i = 0; i < howManyDoges; ++i) {
-      max = t1.length;
+    for (t1 = this.items, t2 = new Z.DogeFactory(U.ImageList$()).images.imageNames, i = 0; i < howManyDoges; ++i) {
+      max = t2.length;
       if (max > 4294967295)
         max = 4294967295;
       t3 = Math.random() * max >>> 0;
-      if (t3 < 0 || t3 >= t1.length)
-        throw H.ioore(t1, t3);
-      t3 = t1[t3];
+      if (t3 < 0 || t3 >= t2.length)
+        throw H.ioore(t2, t3);
+      t3 = t2[t3];
       t4 = window.innerWidth;
       if (typeof t4 !== "number")
         throw t4.$lt();
@@ -5720,7 +5723,7 @@ Pound: {"": "Object;items",
       t6 = new V.Coord(0, 0);
       t6.x = t4;
       t6.y = t5;
-      t2.push(S.Doge$(i, t3, t6));
+      t1.push(S.Doge$(i, t3, t6));
     }
   },
   static: {

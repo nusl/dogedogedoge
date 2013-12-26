@@ -10,6 +10,7 @@ class ImageList
   {
     imageNames.add('dogeOne');
     imageNames.add('dogeTwo');
+    imageNames.add('dogeThree');
   }
   
   String getRandomImage()
