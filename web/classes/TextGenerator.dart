@@ -4,7 +4,7 @@ import 'dart:math';
 
 class TextGenerator
 {
-  List<String> singleStrings = ["wow"];
+  List<String> singleStrings = ["wow", "to the moon!"];
   List<String> prefixStrings = ["such", "many", "very", "so", "much"];
   List<String> suffixStrings = ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"];
   

@@ -2163,6 +2163,39 @@ initHooks_closure1: {"": "Closure;prototypeForTag_2",
   },
   $is_args1: true
 }}],
+["backgroundrenderer", "classes/BackgroundRenderer.dart", , Z, {
+BackgroundRenderer: {"": "Object;",
+  render$2: function(ctx, c) {
+    var t1, t2, grd;
+    J.beginPath$0$x(ctx);
+    t1 = J.getInterceptor$x(c);
+    t2 = t1.get$width(c);
+    if (typeof t2 !== "number")
+      throw t2.$div();
+    t2 /= 2;
+    grd = ctx.createLinearGradient(t2, t1.get$height(c), t2, 0);
+    grd.addColorStop(0.06, "rgba(255, 255, 255, 1.000)");
+    grd.addColorStop(0.205, "rgba(14, 196, 206, 1.000)");
+    grd.addColorStop(0.425, "rgba(0, 85, 170, 1.000)");
+    grd.addColorStop(0.855, "rgba(0, 0, 0, 1.000)");
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, t1.get$width(c), t1.get$height(c));
+    ctx.closePath();
+    ctx.beginPath();
+    t2 = t1.get$width(c);
+    if (typeof t2 !== "number")
+      throw t2.$div();
+    t1 = t1.get$height(c);
+    if (typeof t1 !== "number")
+      throw t1.$div();
+    ctx.arc(t2 / 1.3, t1 / 3, t2 / 13, 0, 6.283185307179586, true);
+    ctx.fillStyle = "grey";
+    ctx.globalAlpha = 0.6;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.closePath();
+  }
+}}],
 ["coord", "classes/Coord.dart", , V, {
 Coord: {"": "Object;x,y"}}],
 ["dart._collection.dev", "dart:_collection-dev", , H, {
@@ -5242,7 +5275,7 @@ AnchorElement: {"": "HtmlElement;",
   "%": "HTMLAnchorElement"
 },
 
-CanvasElement: {"": "HtmlElement;height},width%",
+CanvasElement: {"": "HtmlElement;height%,width%",
   getContext$2: function(receiver, contextId, attrs) {
     return receiver.getContext(contextId);
   },
@@ -5255,6 +5288,9 @@ CanvasElement: {"": "HtmlElement;height},width%",
 CanvasRenderingContext: {"": "Interceptor;", "%": "WebGLRenderingContext;CanvasRenderingContext"},
 
 CanvasRenderingContext2D: {"": "CanvasRenderingContext;fillStyle}",
+  beginPath$0: function(receiver) {
+    return receiver.beginPath();
+  },
   save$0: function(receiver) {
     return receiver.save();
   },
@@ -5281,7 +5317,7 @@ Element: {"": "Node;",
   "%": ";Element"
 },
 
-EmbedElement: {"": "HtmlElement;height},width%", "%": "HTMLEmbedElement"},
+EmbedElement: {"": "HtmlElement;height%,width%", "%": "HTMLEmbedElement"},
 
 ErrorEvent: {"": "Event;error=", "%": "ErrorEvent"},
 
@@ -5299,11 +5335,11 @@ EventTarget: {"": "Interceptor;",
 
 FormElement: {"": "HtmlElement;length=", "%": "HTMLFormElement"},
 
-IFrameElement: {"": "HtmlElement;height},width%", "%": "HTMLIFrameElement"},
+IFrameElement: {"": "HtmlElement;height%,width%", "%": "HTMLIFrameElement"},
 
-ImageElement: {"": "HtmlElement;height},width%", "%": "HTMLImageElement"},
+ImageElement: {"": "HtmlElement;height%,width%", "%": "HTMLImageElement"},
 
-InputElement: {"": "HtmlElement;height},width%", "%": "HTMLInputElement"},
+InputElement: {"": "HtmlElement;height%,width%", "%": "HTMLInputElement"},
 
 MediaElement: {"": "HtmlElement;error=", "%": "HTMLAudioElement;HTMLMediaElement"},
 
@@ -5317,7 +5353,7 @@ Node: {"": "EventTarget;",
   "%": "Document|HTMLDocument;Node"
 },
 
-ObjectElement: {"": "HtmlElement;height},width%", "%": "HTMLObjectElement"},
+ObjectElement: {"": "HtmlElement;height%,width%", "%": "HTMLObjectElement"},
 
 SelectElement: {"": "HtmlElement;length=", "%": "HTMLSelectElement"},
 
@@ -5325,7 +5361,7 @@ SpeechRecognitionError: {"": "Event;error=", "%": "SpeechRecognitionError"},
 
 UIEvent: {"": "Event;", "%": "CompositionEvent|FocusEvent|KeyboardEvent|SVGZoomEvent|TextEvent|TouchEvent;UIEvent"},
 
-VideoElement: {"": "MediaElement;height},width%", "%": "HTMLVideoElement"},
+VideoElement: {"": "MediaElement;height%,width%", "%": "HTMLVideoElement"},
 
 Window: {"": "EventTarget;",
   get$animationFrame: function(receiver) {
@@ -5411,57 +5447,57 @@ _EventStreamSubscription: {"": "StreamSubscription;_pauseCount,_target,_eventTyp
   $asStreamSubscription: null
 }}],
 ["dart.dom.svg", "dart:svg", , P, {
-FEBlendElement: {"": "SvgElement;width=", "%": "SVGFEBlendElement"},
+FEBlendElement: {"": "SvgElement;height=,width=", "%": "SVGFEBlendElement"},
 
-FEColorMatrixElement: {"": "SvgElement;width=", "%": "SVGFEColorMatrixElement"},
+FEColorMatrixElement: {"": "SvgElement;height=,width=", "%": "SVGFEColorMatrixElement"},
 
-FEComponentTransferElement: {"": "SvgElement;width=", "%": "SVGFEComponentTransferElement"},
+FEComponentTransferElement: {"": "SvgElement;height=,width=", "%": "SVGFEComponentTransferElement"},
 
-FECompositeElement: {"": "SvgElement;width=", "%": "SVGFECompositeElement"},
+FECompositeElement: {"": "SvgElement;height=,width=", "%": "SVGFECompositeElement"},
 
-FEConvolveMatrixElement: {"": "SvgElement;width=", "%": "SVGFEConvolveMatrixElement"},
+FEConvolveMatrixElement: {"": "SvgElement;height=,width=", "%": "SVGFEConvolveMatrixElement"},
 
-FEDiffuseLightingElement: {"": "SvgElement;width=", "%": "SVGFEDiffuseLightingElement"},
+FEDiffuseLightingElement: {"": "SvgElement;height=,width=", "%": "SVGFEDiffuseLightingElement"},
 
-FEDisplacementMapElement: {"": "SvgElement;width=", "%": "SVGFEDisplacementMapElement"},
+FEDisplacementMapElement: {"": "SvgElement;height=,width=", "%": "SVGFEDisplacementMapElement"},
 
-FEFloodElement: {"": "SvgElement;width=", "%": "SVGFEFloodElement"},
+FEFloodElement: {"": "SvgElement;height=,width=", "%": "SVGFEFloodElement"},
 
-FEGaussianBlurElement: {"": "SvgElement;width=", "%": "SVGFEGaussianBlurElement"},
+FEGaussianBlurElement: {"": "SvgElement;height=,width=", "%": "SVGFEGaussianBlurElement"},
 
-FEImageElement: {"": "SvgElement;width=", "%": "SVGFEImageElement"},
+FEImageElement: {"": "SvgElement;height=,width=", "%": "SVGFEImageElement"},
 
-FEMergeElement: {"": "SvgElement;width=", "%": "SVGFEMergeElement"},
+FEMergeElement: {"": "SvgElement;height=,width=", "%": "SVGFEMergeElement"},
 
-FEMorphologyElement: {"": "SvgElement;width=", "%": "SVGFEMorphologyElement"},
+FEMorphologyElement: {"": "SvgElement;height=,width=", "%": "SVGFEMorphologyElement"},
 
-FEOffsetElement: {"": "SvgElement;width=", "%": "SVGFEOffsetElement"},
+FEOffsetElement: {"": "SvgElement;height=,width=", "%": "SVGFEOffsetElement"},
 
-FESpecularLightingElement: {"": "SvgElement;width=", "%": "SVGFESpecularLightingElement"},
+FESpecularLightingElement: {"": "SvgElement;height=,width=", "%": "SVGFESpecularLightingElement"},
 
-FETileElement: {"": "SvgElement;width=", "%": "SVGFETileElement"},
+FETileElement: {"": "SvgElement;height=,width=", "%": "SVGFETileElement"},
 
-FETurbulenceElement: {"": "SvgElement;width=", "%": "SVGFETurbulenceElement"},
+FETurbulenceElement: {"": "SvgElement;height=,width=", "%": "SVGFETurbulenceElement"},
 
-FilterElement: {"": "SvgElement;width=", "%": "SVGFilterElement"},
+FilterElement: {"": "SvgElement;height=,width=", "%": "SVGFilterElement"},
 
-ForeignObjectElement: {"": "GraphicsElement;width=", "%": "SVGForeignObjectElement"},
+ForeignObjectElement: {"": "GraphicsElement;height=,width=", "%": "SVGForeignObjectElement"},
 
 GraphicsElement: {"": "SvgElement;", "%": "SVGAElement|SVGAltGlyphElement|SVGCircleElement|SVGClipPathElement|SVGDefsElement|SVGEllipseElement|SVGGElement|SVGLineElement|SVGPathElement|SVGPolygonElement|SVGPolylineElement|SVGSwitchElement|SVGTSpanElement|SVGTextContentElement|SVGTextElement|SVGTextPathElement|SVGTextPositioningElement;SVGGraphicsElement"},
 
-ImageElement0: {"": "GraphicsElement;width=", "%": "SVGImageElement"},
+ImageElement0: {"": "GraphicsElement;height=,width=", "%": "SVGImageElement"},
 
-MaskElement: {"": "SvgElement;width=", "%": "SVGMaskElement"},
+MaskElement: {"": "SvgElement;height=,width=", "%": "SVGMaskElement"},
 
-PatternElement: {"": "SvgElement;width=", "%": "SVGPatternElement"},
+PatternElement: {"": "SvgElement;height=,width=", "%": "SVGPatternElement"},
 
-RectElement: {"": "GraphicsElement;width=", "%": "SVGRectElement"},
+RectElement: {"": "GraphicsElement;height=,width=", "%": "SVGRectElement"},
 
 SvgElement: {"": "Element;", "%": "SVGAltGlyphDefElement|SVGAltGlyphItemElement|SVGAnimateColorElement|SVGAnimateElement|SVGAnimateMotionElement|SVGAnimateTransformElement|SVGAnimationElement|SVGComponentTransferFunctionElement|SVGCursorElement|SVGDescElement|SVGFEDistantLightElement|SVGFEDropShadowElement|SVGFEFuncAElement|SVGFEFuncBElement|SVGFEFuncGElement|SVGFEFuncRElement|SVGFEMergeNodeElement|SVGFEPointLightElement|SVGFESpotLightElement|SVGFontElement|SVGFontFaceElement|SVGFontFaceFormatElement|SVGFontFaceNameElement|SVGFontFaceSrcElement|SVGFontFaceUriElement|SVGGlyphElement|SVGGlyphRefElement|SVGGradientElement|SVGHKernElement|SVGLinearGradientElement|SVGMPathElement|SVGMarkerElement|SVGMetadataElement|SVGMissingGlyphElement|SVGRadialGradientElement|SVGScriptElement|SVGSetElement|SVGStopElement|SVGStyleElement|SVGSymbolElement|SVGTitleElement|SVGVKernElement|SVGViewElement;SVGElement"},
 
-SvgSvgElement: {"": "GraphicsElement;width=", "%": "SVGSVGElement"},
+SvgSvgElement: {"": "GraphicsElement;height=,width=", "%": "SVGSVGElement"},
 
-UseElement: {"": "GraphicsElement;width=", "%": "SVGUseElement"}}],
+UseElement: {"": "GraphicsElement;height=,width=", "%": "SVGUseElement"}}],
 ["dart.isolate", "dart:isolate", , P, {
 ReceivePort: {"": "Object;"}}],
 ["dart.math", "dart:math", , P, {
@@ -5644,6 +5680,7 @@ main: function() {
   t2._tryResume$0();
   $.p = A.Pound$withDoges(16);
   $.t = R.TextRenderer$withTextItems(7);
+  $.b = new Z.BackgroundRenderer();
   J.set$width$x($.c, window.innerWidth);
   J.set$height$x($.c, window.innerHeight);
   C.Window_methods.get$animationFrame(window).then$1(E.draw$closure);
@@ -5652,6 +5689,7 @@ main: function() {
 draw: function(_) {
   J.set$width$x($.c, window.innerWidth);
   J.set$height$x($.c, window.innerHeight);
+  $.b.render$2($.ctx, $.c);
   $.p.update$1($.ctx);
   $.t.update$1($.ctx);
   C.Window_methods.get$animationFrame(window).then$1(E.draw$closure);
@@ -5742,7 +5780,7 @@ TextBlock: {"": "Object;rId,blockText,pos,maxTextSize,minTextSize,textSize,color
     this.resetPos$0();
     this.color = this.getRandomColor$0();
     this.resetTextSize$0();
-    this.blockText = new K.TextGenerator(["wow"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
+    this.blockText = new K.TextGenerator(["wow", "to the moon!"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
     this.render$1(context);
   },
   render$1: function(context) {
@@ -5779,8 +5817,8 @@ TextGenerator: {"": "Object;singleStrings,prefixStrings,suffixStrings,rand",
     t1 = this.rand;
     if (t1.nextInt$1(100) < 20) {
       t2 = this.singleStrings;
-      t1 = t1.nextInt$1(1);
-      if (t1 < 0 || t1 >= 1)
+      t1 = t1.nextInt$1(2);
+      if (t1 < 0 || t1 >= 2)
         throw H.ioore(t2, t1);
       return t2[t1];
     }
@@ -5802,7 +5840,7 @@ TextRenderer: {"": "Object;items,lastUpdateTime,updateInterval,renderedCount,cur
     var t1, t2, t3, t4, max, t5, t6;
     t1 = this.items;
     t2 = t1.length;
-    t3 = new K.TextGenerator(["wow"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
+    t3 = new K.TextGenerator(["wow", "to the moon!"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
     t4 = window.innerWidth;
     if (typeof t4 !== "number")
       throw t4.$lt();
@@ -5853,7 +5891,7 @@ TextRenderer: {"": "Object;items,lastUpdateTime,updateInterval,renderedCount,cur
       t2.resetPos$0();
       t2.color = t2.getRandomColor$0();
       t2.resetTextSize$0();
-      t2.blockText = new K.TextGenerator(["wow"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
+      t2.blockText = new K.TextGenerator(["wow", "to the moon!"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
       t2 = this.currentItem;
       this.currentItem = t2 === t1.length - 1 ? 0 : t2 + 1;
       t2 = this.renderedCount;
@@ -6166,6 +6204,7 @@ $.c = null;
 $.ctx = null;
 $.p = null;
 $.t = null;
+$.b = null;
 $.Device__isOpera = null;
 $.Device__isWebKit = null;
 J.$eq = function(receiver, a0) {
@@ -6196,6 +6235,9 @@ J.abs$0$n = function(receiver) {
 };
 J.addEventListener$3$x = function(receiver, a0, a1, a2) {
   return J.getInterceptor$x(receiver).addEventListener$3(receiver, a0, a1, a2);
+};
+J.beginPath$0$x = function(receiver) {
+  return J.getInterceptor$x(receiver).beginPath$0(receiver);
 };
 J.forEach$1$ax = function(receiver, a0) {
   return J.getInterceptor$ax(receiver).forEach$1(receiver, a0);
@@ -6740,6 +6782,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   CanvasElement.prototype = $desc;
+  CanvasElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   CanvasElement.prototype.set$height = function(receiver, v) {
     return receiver.height = v;
   };
@@ -6941,6 +6986,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   EmbedElement.prototype = $desc;
+  EmbedElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   EmbedElement.prototype.set$height = function(receiver, v) {
     return receiver.height = v;
   };
@@ -7082,6 +7130,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   IFrameElement.prototype = $desc;
+  IFrameElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   IFrameElement.prototype.set$height = function(receiver, v) {
     return receiver.height = v;
   };
@@ -7100,6 +7151,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   ImageElement.prototype = $desc;
+  ImageElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   ImageElement.prototype.set$height = function(receiver, v) {
     return receiver.height = v;
   };
@@ -7118,6 +7172,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   InputElement.prototype = $desc;
+  InputElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   InputElement.prototype.set$height = function(receiver, v) {
     return receiver.height = v;
   };
@@ -7391,6 +7448,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   ObjectElement.prototype = $desc;
+  ObjectElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   ObjectElement.prototype.set$height = function(receiver, v) {
     return receiver.height = v;
   };
@@ -7829,6 +7889,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   VideoElement.prototype = $desc;
+  VideoElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   VideoElement.prototype.set$height = function(receiver, v) {
     return receiver.height = v;
   };
@@ -8090,6 +8153,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEBlendElement.prototype = $desc;
+  FEBlendElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEBlendElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8102,6 +8168,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEColorMatrixElement.prototype = $desc;
+  FEColorMatrixElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEColorMatrixElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8114,6 +8183,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEComponentTransferElement.prototype = $desc;
+  FEComponentTransferElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEComponentTransferElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8126,6 +8198,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FECompositeElement.prototype = $desc;
+  FECompositeElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FECompositeElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8138,6 +8213,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEConvolveMatrixElement.prototype = $desc;
+  FEConvolveMatrixElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEConvolveMatrixElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8150,6 +8228,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEDiffuseLightingElement.prototype = $desc;
+  FEDiffuseLightingElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEDiffuseLightingElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8162,6 +8243,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEDisplacementMapElement.prototype = $desc;
+  FEDisplacementMapElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEDisplacementMapElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8183,6 +8267,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEFloodElement.prototype = $desc;
+  FEFloodElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEFloodElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8231,6 +8318,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEGaussianBlurElement.prototype = $desc;
+  FEGaussianBlurElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEGaussianBlurElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8243,6 +8333,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEImageElement.prototype = $desc;
+  FEImageElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEImageElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8255,6 +8348,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEMergeElement.prototype = $desc;
+  FEMergeElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEMergeElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8276,6 +8372,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEMorphologyElement.prototype = $desc;
+  FEMorphologyElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEMorphologyElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8288,6 +8387,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FEOffsetElement.prototype = $desc;
+  FEOffsetElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FEOffsetElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8309,6 +8411,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FESpecularLightingElement.prototype = $desc;
+  FESpecularLightingElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FESpecularLightingElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8330,6 +8435,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FETileElement.prototype = $desc;
+  FETileElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FETileElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8342,6 +8450,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FETurbulenceElement.prototype = $desc;
+  FETurbulenceElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FETurbulenceElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8354,6 +8465,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   FilterElement.prototype = $desc;
+  FilterElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   FilterElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8366,6 +8480,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   ForeignObjectElement.prototype = $desc;
+  ForeignObjectElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   ForeignObjectElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8396,6 +8513,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   ImageElement0.prototype = $desc;
+  ImageElement0.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   ImageElement0.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8435,6 +8555,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   MaskElement.prototype = $desc;
+  MaskElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   MaskElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8465,6 +8588,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   PatternElement.prototype = $desc;
+  PatternElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   PatternElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8504,6 +8630,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   RectElement.prototype = $desc;
+  RectElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   RectElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8561,6 +8690,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   SvgSvgElement.prototype = $desc;
+  SvgSvgElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   SvgSvgElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -8645,6 +8777,9 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   UseElement.prototype = $desc;
+  UseElement.prototype.get$height = function(receiver) {
+    return receiver.height;
+  };
   UseElement.prototype.get$width = function(receiver) {
     return receiver.width;
   };
@@ -9587,6 +9722,15 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   initHooks_closure1.prototype = $desc;
+  function BackgroundRenderer() {
+  }
+  BackgroundRenderer.builtin$cls = "BackgroundRenderer";
+  if (!"name" in BackgroundRenderer)
+    BackgroundRenderer.name = "BackgroundRenderer";
+  $desc = $collectedClasses.BackgroundRenderer;
+  if ($desc instanceof Array)
+    $desc = $desc[1];
+  BackgroundRenderer.prototype = $desc;
   function Coord(x, y) {
     this.x = x;
     this.y = y;
@@ -11028,5 +11172,5 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   Closure$20.prototype = $desc;
-  return [HtmlElement, AnchorElement, AnimationEvent, AreaElement, AudioElement, AutocompleteErrorEvent, BRElement, BaseElement, BeforeLoadEvent, BeforeUnloadEvent, BodyElement, ButtonElement, CanvasElement, CanvasGradient, CanvasPattern, CanvasRenderingContext, CanvasRenderingContext2D, CloseEvent, CompositionEvent, ContentElement, CssFontFaceLoadEvent, CustomEvent, DListElement, DataListElement, DetailsElement, DeviceMotionEvent, DeviceOrientationEvent, DialogElement, DivElement, Document, DomError, DomException, Element, EmbedElement, ErrorEvent, Event, EventTarget, FieldSetElement, FileError, FocusEvent, FormElement, HRElement, HashChangeEvent, HeadElement, HeadingElement, HtmlDocument, HtmlHtmlElement, IFrameElement, ImageElement, InputElement, KeyboardEvent, KeygenElement, LIElement, LabelElement, LegendElement, LinkElement, MapElement, MediaElement, MediaError, MediaKeyError, MediaKeyEvent, MediaKeyMessageEvent, MediaKeyNeededEvent, MediaStream, MediaStreamEvent, MediaStreamTrackEvent, MenuElement, MessageEvent, MetaElement, MeterElement, MidiConnectionEvent, MidiMessageEvent, ModElement, MouseEvent, Navigator, NavigatorUserMediaError, Node, OListElement, ObjectElement, OptGroupElement, OptionElement, OutputElement, OverflowEvent, PageTransitionEvent, ParagraphElement, ParamElement, PopStateEvent, PositionError, PreElement, ProgressElement, ProgressEvent, QuoteElement, ResourceProgressEvent, RtcDataChannelEvent, RtcDtmfToneChangeEvent, RtcIceCandidateEvent, ScriptElement, SecurityPolicyViolationEvent, SelectElement, ShadowElement, SourceElement, SpanElement, SpeechInputEvent, SpeechRecognitionError, SpeechRecognitionEvent, SpeechSynthesisEvent, StorageEvent, StyleElement, TableCaptionElement, TableCellElement, TableColElement, TableElement, TableRowElement, TableSectionElement, TemplateElement, TextAreaElement, TextEvent, TitleElement, TouchEvent, TrackElement, TrackEvent, TransitionEvent, UIEvent, UListElement, UnknownElement, VideoElement, WheelEvent, Window, _HTMLAppletElement, _HTMLBaseFontElement, _HTMLDirectoryElement, _HTMLFontElement, _HTMLFrameElement, _HTMLFrameSetElement, _HTMLMarqueeElement, _MutationEvent, _XMLHttpRequestProgressEvent, VersionChangeEvent, AElement, AltGlyphElement, AnimateElement, AnimateMotionElement, AnimateTransformElement, AnimatedLength, AnimatedLengthList, AnimatedNumber, AnimatedNumberList, AnimationElement, CircleElement, ClipPathElement, DefsElement, DescElement, EllipseElement, FEBlendElement, FEColorMatrixElement, FEComponentTransferElement, FECompositeElement, FEConvolveMatrixElement, FEDiffuseLightingElement, FEDisplacementMapElement, FEDistantLightElement, FEFloodElement, FEFuncAElement, FEFuncBElement, FEFuncGElement, FEFuncRElement, FEGaussianBlurElement, FEImageElement, FEMergeElement, FEMergeNodeElement, FEMorphologyElement, FEOffsetElement, FEPointLightElement, FESpecularLightingElement, FESpotLightElement, FETileElement, FETurbulenceElement, FilterElement, ForeignObjectElement, GElement, GraphicsElement, ImageElement0, LineElement, LinearGradientElement, MarkerElement, MaskElement, MetadataElement, PathElement, PatternElement, PolygonElement, PolylineElement, RadialGradientElement, RectElement, ScriptElement0, SetElement, StopElement, StyleElement0, SvgElement, SvgSvgElement, SwitchElement, SymbolElement, TSpanElement, TextContentElement, TextElement, TextPathElement, TextPositioningElement, TitleElement0, UseElement, ViewElement, ZoomEvent, _GradientElement, _SVGAltGlyphDefElement, _SVGAltGlyphItemElement, _SVGAnimateColorElement, _SVGComponentTransferFunctionElement, _SVGCursorElement, _SVGFEDropShadowElement, _SVGFontElement, _SVGFontFaceElement, _SVGFontFaceFormatElement, _SVGFontFaceNameElement, _SVGFontFaceSrcElement, _SVGFontFaceUriElement, _SVGGlyphElement, _SVGGlyphRefElement, _SVGHKernElement, _SVGMPathElement, _SVGMissingGlyphElement, _SVGVKernElement, AudioProcessingEvent, OfflineAudioCompletionEvent, ContextEvent, RenderingContext, SqlError, TypedData, Uint8List, JS_CONST, Interceptor, JSBool, JSNull, JavaScriptObject, PlainJavaScriptObject, UnknownJavaScriptObject, JSArray, JSMutableArray, JSFixedArray, JSExtendableArray, JSNumber, JSInt, JSDouble, JSString, startRootIsolate_closure, startRootIsolate_closure0, _Manager, _IsolateContext, _EventLoop, _EventLoop__runHelper_next, _IsolateEvent, _MainManagerStub, IsolateNatives__processWorkerMessage_closure, _BaseSendPort, _NativeJsSendPort, _NativeJsSendPort_send_closure, _NativeJsSendPort_send__closure, _WorkerSendPort, _WorkerSendPort_send_closure, ReceivePortImpl, BoundClosure$i0, _waitForPendingPorts_closure, _PendingSendPortFinder, _JsSerializer, _JsCopier, _JsDeserializer, _JsVisitedMap, _MessageTraverserVisitedMap, _MessageTraverser, BoundClosure$1, _Copier, _Copier_visitMap_closure, _Serializer, _Deserializer, TimerImpl, TimerImpl_internalCallback, TimerImpl_internalCallback0, TypeErrorDecoder, NullError, JsNoSuchMethodError, UnknownJsTypeError, unwrapException_saveStackTrace, _StackTrace, invokeClosure_closure, invokeClosure_closure0, invokeClosure_closure1, invokeClosure_closure2, invokeClosure_closure3, Closure, BoundClosure, initHooks_closure, initHooks_closure0, initHooks_closure1, Coord, ListIterator, MappedIterable, EfficientLengthMappedIterable, MappedIterator, FixedLengthListMixin, _AsyncError, Future, Future_wait_handleError, Future_wait_closure, _Completer, _AsyncCompleter, _Future, BoundClosure$2, _Future__addListener_closure, _Future__chainFutures_closure, _Future__chainFutures_closure0, _Future__asyncComplete_closure, _Future__asyncCompleteError_closure, _Future__propagateToListeners_closure, _Future__propagateToListeners_closure0, _Future__propagateToListeners__closure, _Future__propagateToListeners__closure0, Stream, Stream_forEach_closure, Stream_forEach__closure, Stream_forEach__closure0, Stream_forEach_closure0, Stream_length_closure, Stream_length_closure0, StreamSubscription, _StreamController, _StreamController__subscribe_closure, _StreamController__recordCancel_complete, _SyncStreamControllerDispatch, _AsyncStreamControllerDispatch, _AsyncStreamController, _StreamController__AsyncStreamControllerDispatch, _SyncStreamController, _StreamController__SyncStreamControllerDispatch, _ControllerStream, _ControllerSubscription, BoundClosure$0, _EventSink, _BufferingStreamSubscription, _BufferingStreamSubscription__sendDone_sendDone, _StreamImpl, _DelayedEvent, _DelayedData, _DelayedDone, _PendingEvents, _PendingEvents_schedule_closure, _StreamImplEvents, _cancelAndError_closure, _cancelAndErrorClosure_closure, _BaseZone, _BaseZone_bindCallback_closure, _BaseZone_bindCallback_closure0, _BaseZone_bindUnaryCallback_closure, _BaseZone_bindUnaryCallback_closure0, _rootHandleUncaughtError_closure, _rootHandleUncaughtError__closure, _RootZone, _HashMap, _HashMap_values_closure, HashMapKeyIterable, HashMapKeyIterator, _LinkedHashMap, _LinkedHashMap_values_closure, LinkedHashMapCell, LinkedHashMapKeyIterable, LinkedHashMapKeyIterator, _HashSet, _IdentityHashSet, HashSetIterator, _HashSetBase, IterableBase, ListMixin, Maps_mapToString_closure, ListQueue, _ListQueueIterator, NoSuchMethodError_toString_closure, DateTime, DateTime_toString_fourDigits, DateTime_toString_threeDigits, DateTime_toString_twoDigits, Duration, Duration_toString_sixDigits, Duration_toString_twoDigits, Error, NullThrownError, ArgumentError, RangeError, UnsupportedError, UnimplementedError, StateError, ConcurrentModificationError, StackOverflowError, CyclicInitializationError, _ExceptionImplementation, Expando, Function, Iterator, Null, Object, StackTrace, StringBuffer, Symbol, Window_animationFrame_closure, EventStreamProvider, _EventStream, _ElementEventStreamImpl, _EventStreamSubscription, ReceivePort, _Random, TypedData_ListMixin, TypedData_ListMixin_FixedLengthListMixin, Doge, DogeFactory, ImageList, Pound, TextBlock, TextGenerator, TextRenderer, Closure$2, Closure$0, Closure$7, Closure$1, Closure$20];
+  return [HtmlElement, AnchorElement, AnimationEvent, AreaElement, AudioElement, AutocompleteErrorEvent, BRElement, BaseElement, BeforeLoadEvent, BeforeUnloadEvent, BodyElement, ButtonElement, CanvasElement, CanvasGradient, CanvasPattern, CanvasRenderingContext, CanvasRenderingContext2D, CloseEvent, CompositionEvent, ContentElement, CssFontFaceLoadEvent, CustomEvent, DListElement, DataListElement, DetailsElement, DeviceMotionEvent, DeviceOrientationEvent, DialogElement, DivElement, Document, DomError, DomException, Element, EmbedElement, ErrorEvent, Event, EventTarget, FieldSetElement, FileError, FocusEvent, FormElement, HRElement, HashChangeEvent, HeadElement, HeadingElement, HtmlDocument, HtmlHtmlElement, IFrameElement, ImageElement, InputElement, KeyboardEvent, KeygenElement, LIElement, LabelElement, LegendElement, LinkElement, MapElement, MediaElement, MediaError, MediaKeyError, MediaKeyEvent, MediaKeyMessageEvent, MediaKeyNeededEvent, MediaStream, MediaStreamEvent, MediaStreamTrackEvent, MenuElement, MessageEvent, MetaElement, MeterElement, MidiConnectionEvent, MidiMessageEvent, ModElement, MouseEvent, Navigator, NavigatorUserMediaError, Node, OListElement, ObjectElement, OptGroupElement, OptionElement, OutputElement, OverflowEvent, PageTransitionEvent, ParagraphElement, ParamElement, PopStateEvent, PositionError, PreElement, ProgressElement, ProgressEvent, QuoteElement, ResourceProgressEvent, RtcDataChannelEvent, RtcDtmfToneChangeEvent, RtcIceCandidateEvent, ScriptElement, SecurityPolicyViolationEvent, SelectElement, ShadowElement, SourceElement, SpanElement, SpeechInputEvent, SpeechRecognitionError, SpeechRecognitionEvent, SpeechSynthesisEvent, StorageEvent, StyleElement, TableCaptionElement, TableCellElement, TableColElement, TableElement, TableRowElement, TableSectionElement, TemplateElement, TextAreaElement, TextEvent, TitleElement, TouchEvent, TrackElement, TrackEvent, TransitionEvent, UIEvent, UListElement, UnknownElement, VideoElement, WheelEvent, Window, _HTMLAppletElement, _HTMLBaseFontElement, _HTMLDirectoryElement, _HTMLFontElement, _HTMLFrameElement, _HTMLFrameSetElement, _HTMLMarqueeElement, _MutationEvent, _XMLHttpRequestProgressEvent, VersionChangeEvent, AElement, AltGlyphElement, AnimateElement, AnimateMotionElement, AnimateTransformElement, AnimatedLength, AnimatedLengthList, AnimatedNumber, AnimatedNumberList, AnimationElement, CircleElement, ClipPathElement, DefsElement, DescElement, EllipseElement, FEBlendElement, FEColorMatrixElement, FEComponentTransferElement, FECompositeElement, FEConvolveMatrixElement, FEDiffuseLightingElement, FEDisplacementMapElement, FEDistantLightElement, FEFloodElement, FEFuncAElement, FEFuncBElement, FEFuncGElement, FEFuncRElement, FEGaussianBlurElement, FEImageElement, FEMergeElement, FEMergeNodeElement, FEMorphologyElement, FEOffsetElement, FEPointLightElement, FESpecularLightingElement, FESpotLightElement, FETileElement, FETurbulenceElement, FilterElement, ForeignObjectElement, GElement, GraphicsElement, ImageElement0, LineElement, LinearGradientElement, MarkerElement, MaskElement, MetadataElement, PathElement, PatternElement, PolygonElement, PolylineElement, RadialGradientElement, RectElement, ScriptElement0, SetElement, StopElement, StyleElement0, SvgElement, SvgSvgElement, SwitchElement, SymbolElement, TSpanElement, TextContentElement, TextElement, TextPathElement, TextPositioningElement, TitleElement0, UseElement, ViewElement, ZoomEvent, _GradientElement, _SVGAltGlyphDefElement, _SVGAltGlyphItemElement, _SVGAnimateColorElement, _SVGComponentTransferFunctionElement, _SVGCursorElement, _SVGFEDropShadowElement, _SVGFontElement, _SVGFontFaceElement, _SVGFontFaceFormatElement, _SVGFontFaceNameElement, _SVGFontFaceSrcElement, _SVGFontFaceUriElement, _SVGGlyphElement, _SVGGlyphRefElement, _SVGHKernElement, _SVGMPathElement, _SVGMissingGlyphElement, _SVGVKernElement, AudioProcessingEvent, OfflineAudioCompletionEvent, ContextEvent, RenderingContext, SqlError, TypedData, Uint8List, JS_CONST, Interceptor, JSBool, JSNull, JavaScriptObject, PlainJavaScriptObject, UnknownJavaScriptObject, JSArray, JSMutableArray, JSFixedArray, JSExtendableArray, JSNumber, JSInt, JSDouble, JSString, startRootIsolate_closure, startRootIsolate_closure0, _Manager, _IsolateContext, _EventLoop, _EventLoop__runHelper_next, _IsolateEvent, _MainManagerStub, IsolateNatives__processWorkerMessage_closure, _BaseSendPort, _NativeJsSendPort, _NativeJsSendPort_send_closure, _NativeJsSendPort_send__closure, _WorkerSendPort, _WorkerSendPort_send_closure, ReceivePortImpl, BoundClosure$i0, _waitForPendingPorts_closure, _PendingSendPortFinder, _JsSerializer, _JsCopier, _JsDeserializer, _JsVisitedMap, _MessageTraverserVisitedMap, _MessageTraverser, BoundClosure$1, _Copier, _Copier_visitMap_closure, _Serializer, _Deserializer, TimerImpl, TimerImpl_internalCallback, TimerImpl_internalCallback0, TypeErrorDecoder, NullError, JsNoSuchMethodError, UnknownJsTypeError, unwrapException_saveStackTrace, _StackTrace, invokeClosure_closure, invokeClosure_closure0, invokeClosure_closure1, invokeClosure_closure2, invokeClosure_closure3, Closure, BoundClosure, initHooks_closure, initHooks_closure0, initHooks_closure1, BackgroundRenderer, Coord, ListIterator, MappedIterable, EfficientLengthMappedIterable, MappedIterator, FixedLengthListMixin, _AsyncError, Future, Future_wait_handleError, Future_wait_closure, _Completer, _AsyncCompleter, _Future, BoundClosure$2, _Future__addListener_closure, _Future__chainFutures_closure, _Future__chainFutures_closure0, _Future__asyncComplete_closure, _Future__asyncCompleteError_closure, _Future__propagateToListeners_closure, _Future__propagateToListeners_closure0, _Future__propagateToListeners__closure, _Future__propagateToListeners__closure0, Stream, Stream_forEach_closure, Stream_forEach__closure, Stream_forEach__closure0, Stream_forEach_closure0, Stream_length_closure, Stream_length_closure0, StreamSubscription, _StreamController, _StreamController__subscribe_closure, _StreamController__recordCancel_complete, _SyncStreamControllerDispatch, _AsyncStreamControllerDispatch, _AsyncStreamController, _StreamController__AsyncStreamControllerDispatch, _SyncStreamController, _StreamController__SyncStreamControllerDispatch, _ControllerStream, _ControllerSubscription, BoundClosure$0, _EventSink, _BufferingStreamSubscription, _BufferingStreamSubscription__sendDone_sendDone, _StreamImpl, _DelayedEvent, _DelayedData, _DelayedDone, _PendingEvents, _PendingEvents_schedule_closure, _StreamImplEvents, _cancelAndError_closure, _cancelAndErrorClosure_closure, _BaseZone, _BaseZone_bindCallback_closure, _BaseZone_bindCallback_closure0, _BaseZone_bindUnaryCallback_closure, _BaseZone_bindUnaryCallback_closure0, _rootHandleUncaughtError_closure, _rootHandleUncaughtError__closure, _RootZone, _HashMap, _HashMap_values_closure, HashMapKeyIterable, HashMapKeyIterator, _LinkedHashMap, _LinkedHashMap_values_closure, LinkedHashMapCell, LinkedHashMapKeyIterable, LinkedHashMapKeyIterator, _HashSet, _IdentityHashSet, HashSetIterator, _HashSetBase, IterableBase, ListMixin, Maps_mapToString_closure, ListQueue, _ListQueueIterator, NoSuchMethodError_toString_closure, DateTime, DateTime_toString_fourDigits, DateTime_toString_threeDigits, DateTime_toString_twoDigits, Duration, Duration_toString_sixDigits, Duration_toString_twoDigits, Error, NullThrownError, ArgumentError, RangeError, UnsupportedError, UnimplementedError, StateError, ConcurrentModificationError, StackOverflowError, CyclicInitializationError, _ExceptionImplementation, Expando, Function, Iterator, Null, Object, StackTrace, StringBuffer, Symbol, Window_animationFrame_closure, EventStreamProvider, _EventStream, _ElementEventStreamImpl, _EventStreamSubscription, ReceivePort, _Random, TypedData_ListMixin, TypedData_ListMixin_FixedLengthListMixin, Doge, DogeFactory, ImageList, Pound, TextBlock, TextGenerator, TextRenderer, Closure$2, Closure$0, Closure$7, Closure$1, Closure$20];
 }

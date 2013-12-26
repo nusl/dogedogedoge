@@ -11,7 +11,7 @@
 
 body
 {
-  background: url('backgrounds/dogeOne.jpg');
+
 }
 
 #canvas
@@ -33,17 +33,23 @@ body
 
 #info
 {
-  
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 400px;
+  height: 100px;
+  color: #CC00FF;
+  font-weight: bold;
+  font-family: Comic Sans MS;
+  font-size: 12px;
 }
 
 #info > p
 {
-  color: red;
-  font-weight: bold;
-  font-family: Comic Sans MS;
+  display: inline;
 }
 
 #info > a
 {
-  color: lightpurple;
+  color: red;
 }

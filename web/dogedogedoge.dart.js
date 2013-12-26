@@ -2163,6 +2163,39 @@ initHooks_closure1: {"": "Closure;prototypeForTag_2",
   },
   $is_args1: true
 }}],
+["backgroundrenderer", "classes/BackgroundRenderer.dart", , Z, {
+BackgroundRenderer: {"": "Object;",
+  render$2: function(ctx, c) {
+    var t1, t2, grd;
+    J.beginPath$0$x(ctx);
+    t1 = J.getInterceptor$x(c);
+    t2 = t1.get$width(c);
+    if (typeof t2 !== "number")
+      throw t2.$div();
+    t2 /= 2;
+    grd = ctx.createLinearGradient(t2, t1.get$height(c), t2, 0);
+    grd.addColorStop(0.06, "rgba(255, 255, 255, 1.000)");
+    grd.addColorStop(0.205, "rgba(14, 196, 206, 1.000)");
+    grd.addColorStop(0.425, "rgba(0, 85, 170, 1.000)");
+    grd.addColorStop(0.855, "rgba(0, 0, 0, 1.000)");
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, t1.get$width(c), t1.get$height(c));
+    ctx.closePath();
+    ctx.beginPath();
+    t2 = t1.get$width(c);
+    if (typeof t2 !== "number")
+      throw t2.$div();
+    t1 = t1.get$height(c);
+    if (typeof t1 !== "number")
+      throw t1.$div();
+    ctx.arc(t2 / 1.3, t1 / 3, t2 / 13, 0, 6.283185307179586, true);
+    ctx.fillStyle = "grey";
+    ctx.globalAlpha = 0.6;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.closePath();
+  }
+}}],
 ["coord", "classes/Coord.dart", , V, {
 Coord: {"": "Object;x,y"}}],
 ["dart._collection.dev", "dart:_collection-dev", , H, {
@@ -5242,7 +5275,7 @@ AnchorElement: {"": "HtmlElement;",
   "%": "HTMLAnchorElement"
 },
 
-CanvasElement: {"": "HtmlElement;height},width%",
+CanvasElement: {"": "HtmlElement;height%,width%",
   getContext$2: function(receiver, contextId, attrs) {
     return receiver.getContext(contextId);
   },
@@ -5255,6 +5288,9 @@ CanvasElement: {"": "HtmlElement;height},width%",
 CanvasRenderingContext: {"": "Interceptor;", "%": "WebGLRenderingContext;CanvasRenderingContext"},
 
 CanvasRenderingContext2D: {"": "CanvasRenderingContext;fillStyle}",
+  beginPath$0: function(receiver) {
+    return receiver.beginPath();
+  },
   save$0: function(receiver) {
     return receiver.save();
   },
@@ -5281,7 +5317,7 @@ Element: {"": "Node;",
   "%": ";Element"
 },
 
-EmbedElement: {"": "HtmlElement;height},width%", "%": "HTMLEmbedElement"},
+EmbedElement: {"": "HtmlElement;height%,width%", "%": "HTMLEmbedElement"},
 
 ErrorEvent: {"": "Event;error=", "%": "ErrorEvent"},
 
@@ -5299,11 +5335,11 @@ EventTarget: {"": "Interceptor;",
 
 FormElement: {"": "HtmlElement;length=", "%": "HTMLFormElement"},
 
-IFrameElement: {"": "HtmlElement;height},width%", "%": "HTMLIFrameElement"},
+IFrameElement: {"": "HtmlElement;height%,width%", "%": "HTMLIFrameElement"},
 
-ImageElement: {"": "HtmlElement;height},width%", "%": "HTMLImageElement"},
+ImageElement: {"": "HtmlElement;height%,width%", "%": "HTMLImageElement"},
 
-InputElement: {"": "HtmlElement;height},width%", "%": "HTMLInputElement"},
+InputElement: {"": "HtmlElement;height%,width%", "%": "HTMLInputElement"},
 
 MediaElement: {"": "HtmlElement;error=", "%": "HTMLAudioElement;HTMLMediaElement"},
 
@@ -5317,7 +5353,7 @@ Node: {"": "EventTarget;",
   "%": "Document|HTMLDocument;Node"
 },
 
-ObjectElement: {"": "HtmlElement;height},width%", "%": "HTMLObjectElement"},
+ObjectElement: {"": "HtmlElement;height%,width%", "%": "HTMLObjectElement"},
 
 SelectElement: {"": "HtmlElement;length=", "%": "HTMLSelectElement"},
 
@@ -5325,7 +5361,7 @@ SpeechRecognitionError: {"": "Event;error=", "%": "SpeechRecognitionError"},
 
 UIEvent: {"": "Event;", "%": "CompositionEvent|FocusEvent|KeyboardEvent|SVGZoomEvent|TextEvent|TouchEvent;UIEvent"},
 
-VideoElement: {"": "MediaElement;height},width%", "%": "HTMLVideoElement"},
+VideoElement: {"": "MediaElement;height%,width%", "%": "HTMLVideoElement"},
 
 Window: {"": "EventTarget;",
   get$animationFrame: function(receiver) {
@@ -5411,57 +5447,57 @@ _EventStreamSubscription: {"": "StreamSubscription;_pauseCount,_target,_eventTyp
   $asStreamSubscription: null
 }}],
 ["dart.dom.svg", "dart:svg", , P, {
-FEBlendElement: {"": "SvgElement;width=", "%": "SVGFEBlendElement"},
+FEBlendElement: {"": "SvgElement;height=,width=", "%": "SVGFEBlendElement"},
 
-FEColorMatrixElement: {"": "SvgElement;width=", "%": "SVGFEColorMatrixElement"},
+FEColorMatrixElement: {"": "SvgElement;height=,width=", "%": "SVGFEColorMatrixElement"},
 
-FEComponentTransferElement: {"": "SvgElement;width=", "%": "SVGFEComponentTransferElement"},
+FEComponentTransferElement: {"": "SvgElement;height=,width=", "%": "SVGFEComponentTransferElement"},
 
-FECompositeElement: {"": "SvgElement;width=", "%": "SVGFECompositeElement"},
+FECompositeElement: {"": "SvgElement;height=,width=", "%": "SVGFECompositeElement"},
 
-FEConvolveMatrixElement: {"": "SvgElement;width=", "%": "SVGFEConvolveMatrixElement"},
+FEConvolveMatrixElement: {"": "SvgElement;height=,width=", "%": "SVGFEConvolveMatrixElement"},
 
-FEDiffuseLightingElement: {"": "SvgElement;width=", "%": "SVGFEDiffuseLightingElement"},
+FEDiffuseLightingElement: {"": "SvgElement;height=,width=", "%": "SVGFEDiffuseLightingElement"},
 
-FEDisplacementMapElement: {"": "SvgElement;width=", "%": "SVGFEDisplacementMapElement"},
+FEDisplacementMapElement: {"": "SvgElement;height=,width=", "%": "SVGFEDisplacementMapElement"},
 
-FEFloodElement: {"": "SvgElement;width=", "%": "SVGFEFloodElement"},
+FEFloodElement: {"": "SvgElement;height=,width=", "%": "SVGFEFloodElement"},
 
-FEGaussianBlurElement: {"": "SvgElement;width=", "%": "SVGFEGaussianBlurElement"},
+FEGaussianBlurElement: {"": "SvgElement;height=,width=", "%": "SVGFEGaussianBlurElement"},
 
-FEImageElement: {"": "SvgElement;width=", "%": "SVGFEImageElement"},
+FEImageElement: {"": "SvgElement;height=,width=", "%": "SVGFEImageElement"},
 
-FEMergeElement: {"": "SvgElement;width=", "%": "SVGFEMergeElement"},
+FEMergeElement: {"": "SvgElement;height=,width=", "%": "SVGFEMergeElement"},
 
-FEMorphologyElement: {"": "SvgElement;width=", "%": "SVGFEMorphologyElement"},
+FEMorphologyElement: {"": "SvgElement;height=,width=", "%": "SVGFEMorphologyElement"},
 
-FEOffsetElement: {"": "SvgElement;width=", "%": "SVGFEOffsetElement"},
+FEOffsetElement: {"": "SvgElement;height=,width=", "%": "SVGFEOffsetElement"},
 
-FESpecularLightingElement: {"": "SvgElement;width=", "%": "SVGFESpecularLightingElement"},
+FESpecularLightingElement: {"": "SvgElement;height=,width=", "%": "SVGFESpecularLightingElement"},
 
-FETileElement: {"": "SvgElement;width=", "%": "SVGFETileElement"},
+FETileElement: {"": "SvgElement;height=,width=", "%": "SVGFETileElement"},
 
-FETurbulenceElement: {"": "SvgElement;width=", "%": "SVGFETurbulenceElement"},
+FETurbulenceElement: {"": "SvgElement;height=,width=", "%": "SVGFETurbulenceElement"},
 
-FilterElement: {"": "SvgElement;width=", "%": "SVGFilterElement"},
+FilterElement: {"": "SvgElement;height=,width=", "%": "SVGFilterElement"},
 
-ForeignObjectElement: {"": "GraphicsElement;width=", "%": "SVGForeignObjectElement"},
+ForeignObjectElement: {"": "GraphicsElement;height=,width=", "%": "SVGForeignObjectElement"},
 
 GraphicsElement: {"": "SvgElement;", "%": "SVGAElement|SVGAltGlyphElement|SVGCircleElement|SVGClipPathElement|SVGDefsElement|SVGEllipseElement|SVGGElement|SVGLineElement|SVGPathElement|SVGPolygonElement|SVGPolylineElement|SVGSwitchElement|SVGTSpanElement|SVGTextContentElement|SVGTextElement|SVGTextPathElement|SVGTextPositioningElement;SVGGraphicsElement"},
 
-ImageElement0: {"": "GraphicsElement;width=", "%": "SVGImageElement"},
+ImageElement0: {"": "GraphicsElement;height=,width=", "%": "SVGImageElement"},
 
-MaskElement: {"": "SvgElement;width=", "%": "SVGMaskElement"},
+MaskElement: {"": "SvgElement;height=,width=", "%": "SVGMaskElement"},
 
-PatternElement: {"": "SvgElement;width=", "%": "SVGPatternElement"},
+PatternElement: {"": "SvgElement;height=,width=", "%": "SVGPatternElement"},
 
-RectElement: {"": "GraphicsElement;width=", "%": "SVGRectElement"},
+RectElement: {"": "GraphicsElement;height=,width=", "%": "SVGRectElement"},
 
 SvgElement: {"": "Element;", "%": "SVGAltGlyphDefElement|SVGAltGlyphItemElement|SVGAnimateColorElement|SVGAnimateElement|SVGAnimateMotionElement|SVGAnimateTransformElement|SVGAnimationElement|SVGComponentTransferFunctionElement|SVGCursorElement|SVGDescElement|SVGFEDistantLightElement|SVGFEDropShadowElement|SVGFEFuncAElement|SVGFEFuncBElement|SVGFEFuncGElement|SVGFEFuncRElement|SVGFEMergeNodeElement|SVGFEPointLightElement|SVGFESpotLightElement|SVGFontElement|SVGFontFaceElement|SVGFontFaceFormatElement|SVGFontFaceNameElement|SVGFontFaceSrcElement|SVGFontFaceUriElement|SVGGlyphElement|SVGGlyphRefElement|SVGGradientElement|SVGHKernElement|SVGLinearGradientElement|SVGMPathElement|SVGMarkerElement|SVGMetadataElement|SVGMissingGlyphElement|SVGRadialGradientElement|SVGScriptElement|SVGSetElement|SVGStopElement|SVGStyleElement|SVGSymbolElement|SVGTitleElement|SVGVKernElement|SVGViewElement;SVGElement"},
 
-SvgSvgElement: {"": "GraphicsElement;width=", "%": "SVGSVGElement"},
+SvgSvgElement: {"": "GraphicsElement;height=,width=", "%": "SVGSVGElement"},
 
-UseElement: {"": "GraphicsElement;width=", "%": "SVGUseElement"}}],
+UseElement: {"": "GraphicsElement;height=,width=", "%": "SVGUseElement"}}],
 ["dart.isolate", "dart:isolate", , P, {
 ReceivePort: {"": "Object;"}}],
 ["dart.math", "dart:math", , P, {
@@ -5644,6 +5680,7 @@ main: function() {
   t2._tryResume$0();
   $.p = A.Pound$withDoges(16);
   $.t = R.TextRenderer$withTextItems(7);
+  $.b = new Z.BackgroundRenderer();
   J.set$width$x($.c, window.innerWidth);
   J.set$height$x($.c, window.innerHeight);
   C.Window_methods.get$animationFrame(window).then$1(E.draw$closure);
@@ -5652,6 +5689,7 @@ main: function() {
 draw: function(_) {
   J.set$width$x($.c, window.innerWidth);
   J.set$height$x($.c, window.innerHeight);
+  $.b.render$2($.ctx, $.c);
   $.p.update$1($.ctx);
   $.t.update$1($.ctx);
   C.Window_methods.get$animationFrame(window).then$1(E.draw$closure);
@@ -5742,7 +5780,7 @@ TextBlock: {"": "Object;rId,blockText,pos,maxTextSize,minTextSize,textSize,color
     this.resetPos$0();
     this.color = this.getRandomColor$0();
     this.resetTextSize$0();
-    this.blockText = new K.TextGenerator(["wow"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
+    this.blockText = new K.TextGenerator(["wow", "to the moon!"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
     this.render$1(context);
   },
   render$1: function(context) {
@@ -5779,8 +5817,8 @@ TextGenerator: {"": "Object;singleStrings,prefixStrings,suffixStrings,rand",
     t1 = this.rand;
     if (t1.nextInt$1(100) < 20) {
       t2 = this.singleStrings;
-      t1 = t1.nextInt$1(1);
-      if (t1 < 0 || t1 >= 1)
+      t1 = t1.nextInt$1(2);
+      if (t1 < 0 || t1 >= 2)
         throw H.ioore(t2, t1);
       return t2[t1];
     }
@@ -5802,7 +5840,7 @@ TextRenderer: {"": "Object;items,lastUpdateTime,updateInterval,renderedCount,cur
     var t1, t2, t3, t4, max, t5, t6;
     t1 = this.items;
     t2 = t1.length;
-    t3 = new K.TextGenerator(["wow"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
+    t3 = new K.TextGenerator(["wow", "to the moon!"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
     t4 = window.innerWidth;
     if (typeof t4 !== "number")
       throw t4.$lt();
@@ -5853,7 +5891,7 @@ TextRenderer: {"": "Object;items,lastUpdateTime,updateInterval,renderedCount,cur
       t2.resetPos$0();
       t2.color = t2.getRandomColor$0();
       t2.resetTextSize$0();
-      t2.blockText = new K.TextGenerator(["wow"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
+      t2.blockText = new K.TextGenerator(["wow", "to the moon!"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
       t2 = this.currentItem;
       this.currentItem = t2 === t1.length - 1 ? 0 : t2 + 1;
       t2 = this.renderedCount;
@@ -6166,6 +6204,7 @@ $.c = null;
 $.ctx = null;
 $.p = null;
 $.t = null;
+$.b = null;
 $.Device__isOpera = null;
 $.Device__isWebKit = null;
 J.$eq = function(receiver, a0) {
@@ -6196,6 +6235,9 @@ J.abs$0$n = function(receiver) {
 };
 J.addEventListener$3$x = function(receiver, a0, a1, a2) {
   return J.getInterceptor$x(receiver).addEventListener$3(receiver, a0, a1, a2);
+};
+J.beginPath$0$x = function(receiver) {
+  return J.getInterceptor$x(receiver).beginPath$0(receiver);
 };
 J.forEach$1$ax = function(receiver, a0) {
   return J.getInterceptor$ax(receiver).forEach$1(receiver, a0);

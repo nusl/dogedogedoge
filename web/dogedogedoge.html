@@ -14,13 +14,16 @@
     </div>
     <canvas id="canvas"></canvas>
     <div id="info">
-      <p>
+      <p onclick="window.prompt('Copy the text to your Clipboard:', 'DBcpfWKPXq4cnU8KWbEszPKSJpDuKArguX');">
         DBcpfWKPXq4cnU8KWbEszPKSJpDuKArguX
       </p>
-      <a href="DBcpfWKPXq4cnU8KWbEszPKSJpDuKArguX">SONG</a>
+	  |
+	  <p onclick="(document.getElementById('song').paused) ? document.getElementById('song').play() : document.getElementById('song').pause(); this.innerText=(this.innerText == 'MUTE') ? 'PLAY' : 'MUTE';">MUTE</p>
+      |
+	  <a href="https://www.youtube.com/watch?v=sd4bqmP_460" target="_blank">SONG</a>
     </div>
     
-    <audio autoplay loop>
+    <audio autoplay loop id="song">
       <source src="music/adventure.ogg">
     </audio>
     
