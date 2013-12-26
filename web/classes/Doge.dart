@@ -3,12 +3,13 @@ library doge;
 import 'dart:html';
 import 'dart:math';
 
+import 'IRenderable.dart';
 import 'Coord.dart';
 
-class Doge
+class Doge implements IRenderable
 {
   // ID of current doge
-  int dogeId = 0;
+  int rId = 0;
   // Position of this doge on the canvas
   Coord pos;
   // Image for this doge to render
@@ -25,13 +26,13 @@ class Doge
   {
     rotationSpeed = new Random().nextDouble() * (PI / 45);
     calculateMoveSpeed();
-    dogeId = id;
+    rId = id;
     image = document.querySelector('#' + imageName);
     
     pos = startPos;
   }
   
-  void updateAndRender(CanvasRenderingContext2D context)
+  void update(CanvasRenderingContext2D context)
   {
     // Collision. Wow, such bounce.
     if (pos.x > window.innerWidth || pos.x < 0)
@@ -46,7 +47,11 @@ class Doge
     // Movement. Very pixel.
     pos.x += lateralMoveSpeed;
     pos.y += verticalMoveSpeed;
-    
+  }
+  
+  void updateAndRender(CanvasRenderingContext2D context)
+  {
+    update(context);
     render(context);
   }
   

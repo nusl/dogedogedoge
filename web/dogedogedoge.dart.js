@@ -65,22 +65,22 @@ var $$ = {};
 
 // Native classes
 // Method closures
-$$.BoundClosure$i0 = [H, {"": "BoundClosure;_self,_target,_receiver,__js_helper$_name",
+$$.BoundClosure$i0 = [H, {"": "BoundClosure;_self,__js_helper$_target,_receiver,__js_helper$_name",
   call$0: function() {
-    return this._target.call(this._self, this._receiver);
+    return this.__js_helper$_target.call(this._self, this._receiver);
   }
 }];
 
-$$.BoundClosure$1 = [H, {"": "BoundClosure;_self,_target,_receiver,__js_helper$_name",
+$$.BoundClosure$1 = [H, {"": "BoundClosure;_self,__js_helper$_target,_receiver,__js_helper$_name",
   call$1: function(p0) {
-    return this._target.call(this._self, p0);
+    return this.__js_helper$_target.call(this._self, p0);
   },
   $is_args1: true
 }];
 
-$$.BoundClosure$2 = [P, {"": "BoundClosure;_self,_target,_receiver,__js_helper$_name",
+$$.BoundClosure$2 = [P, {"": "BoundClosure;_self,__js_helper$_target,_receiver,__js_helper$_name",
   call$2: function(p0, p1) {
-    return this._target.call(this._self, p0, p1);
+    return this.__js_helper$_target.call(this._self, p0, p1);
   },
   call$1: function(p0) {
     return this.call$2(p0, null);
@@ -89,9 +89,9 @@ $$.BoundClosure$2 = [P, {"": "BoundClosure;_self,_target,_receiver,__js_helper$_
   $is_args1: true
 }];
 
-$$.BoundClosure$0 = [P, {"": "BoundClosure;_self,_target,_receiver,__js_helper$_name",
+$$.BoundClosure$0 = [P, {"": "BoundClosure;_self,__js_helper$_target,_receiver,__js_helper$_name",
   call$0: function() {
-    return this._target.call(this._self);
+    return this.__js_helper$_target.call(this._self);
   }
 }];
 
@@ -242,7 +242,7 @@ Interceptor: {"": "Object;",
   toString$0: function(receiver) {
     return H.Primitives_objectToString(receiver);
   },
-  "%": "DOMError|FileError|MediaError|MediaKeyError|Navigator|NavigatorUserMediaError|PositionError|SQLError|SVGAnimatedLength|SVGAnimatedLengthList|SVGAnimatedNumber|SVGAnimatedNumberList"
+  "%": "CanvasGradient|CanvasPattern|DOMError|FileError|MediaError|MediaKeyError|Navigator|NavigatorUserMediaError|PositionError|SQLError|SVGAnimatedLength|SVGAnimatedLengthList|SVGAnimatedNumber|SVGAnimatedNumberList"
 },
 
 JSBool: {"": "bool/Interceptor;",
@@ -336,6 +336,9 @@ JSExtendableArray: {"": "JSMutableArray;"},
 JSNumber: {"": "num/Interceptor;",
   remainder$1: function(receiver, b) {
     return receiver % b;
+  },
+  abs$0: function(receiver) {
+    return Math.abs(receiver);
   },
   toInt$0: function(receiver) {
     var t1;
@@ -1449,6 +1452,40 @@ Primitives_stringFromCharCodes: function(charCodes) {
   return H.Primitives__fromCharCodeApply(charCodes);
 },
 
+Primitives_lazyAsJsDate: function(receiver) {
+  if (receiver.date === void 0)
+    receiver.date = new Date(receiver.millisecondsSinceEpoch);
+  return receiver.date;
+},
+
+Primitives_getYear: function(receiver) {
+  return receiver.isUtc ? H.Primitives_lazyAsJsDate(receiver).getUTCFullYear() + 0 : H.Primitives_lazyAsJsDate(receiver).getFullYear() + 0;
+},
+
+Primitives_getMonth: function(receiver) {
+  return receiver.isUtc ? H.Primitives_lazyAsJsDate(receiver).getUTCMonth() + 1 : H.Primitives_lazyAsJsDate(receiver).getMonth() + 1;
+},
+
+Primitives_getDay: function(receiver) {
+  return receiver.isUtc ? H.Primitives_lazyAsJsDate(receiver).getUTCDate() + 0 : H.Primitives_lazyAsJsDate(receiver).getDate() + 0;
+},
+
+Primitives_getHours: function(receiver) {
+  return receiver.isUtc ? H.Primitives_lazyAsJsDate(receiver).getUTCHours() + 0 : H.Primitives_lazyAsJsDate(receiver).getHours() + 0;
+},
+
+Primitives_getMinutes: function(receiver) {
+  return receiver.isUtc ? H.Primitives_lazyAsJsDate(receiver).getUTCMinutes() + 0 : H.Primitives_lazyAsJsDate(receiver).getMinutes() + 0;
+},
+
+Primitives_getSeconds: function(receiver) {
+  return receiver.isUtc ? H.Primitives_lazyAsJsDate(receiver).getUTCSeconds() + 0 : H.Primitives_lazyAsJsDate(receiver).getSeconds() + 0;
+},
+
+Primitives_getMilliseconds: function(receiver) {
+  return receiver.isUtc ? H.Primitives_lazyAsJsDate(receiver).getUTCMilliseconds() + 0 : H.Primitives_lazyAsJsDate(receiver).getMilliseconds() + 0;
+},
+
 Primitives_getProperty: function(object, key) {
   if (object == null || typeof object === "boolean" || typeof object === "number" || typeof object === "string")
     throw H.wrapException(new P.ArgumentError(object));
@@ -2082,7 +2119,7 @@ Closure: {"": "Object;",
   }
 },
 
-BoundClosure: {"": "Closure;_self,_target,_receiver,__js_helper$_name",
+BoundClosure: {"": "Closure;_self,__js_helper$_target,_receiver,__js_helper$_name",
   $eq: function(_, other) {
     var t1;
     if (other == null)
@@ -2092,7 +2129,7 @@ BoundClosure: {"": "Closure;_self,_target,_receiver,__js_helper$_name",
     t1 = J.getInterceptor(other);
     if (typeof other !== "object" || other === null || !t1.$isBoundClosure)
       return false;
-    return this._self === other._self && this._target === other._target && this._receiver === other._receiver;
+    return this._self === other._self && this.__js_helper$_target === other.__js_helper$_target && this._receiver === other._receiver;
   },
   get$hashCode: function(_) {
     var t1, receiverHashCode;
@@ -2101,7 +2138,7 @@ BoundClosure: {"": "Closure;_self,_target,_receiver,__js_helper$_name",
       receiverHashCode = H.Primitives_objectHashCode(this._self);
     else
       receiverHashCode = typeof t1 !== "object" ? J.get$hashCode$(t1) : H.Primitives_objectHashCode(t1);
-    return (receiverHashCode ^ H.Primitives_objectHashCode(this._target)) >>> 0;
+    return (receiverHashCode ^ H.Primitives_objectHashCode(this.__js_helper$_target)) >>> 0;
   },
   $isBoundClosure: true
 },
@@ -3208,7 +3245,7 @@ _ControllerStream: {"": "_StreamImpl;_async$_controller",
   $as_StreamImpl: null
 },
 
-_ControllerSubscription: {"": "_BufferingStreamSubscription;_async$_controller,_onData,_onError,_onDone,_zone,_state,_cancelFuture,_pending",
+_ControllerSubscription: {"": "_BufferingStreamSubscription;_async$_controller,_async$_onData,_onError,_onDone,_zone,_state,_cancelFuture,_pending",
   _onCancel$0: function() {
     return this._async$_controller._recordCancel$1(this);
   },
@@ -3238,7 +3275,7 @@ _ControllerSubscription: {"": "_BufferingStreamSubscription;_async$_controller,_
 
 _EventSink: {"": "Object;"},
 
-_BufferingStreamSubscription: {"": "Object;_onData,_onError,_onDone,_zone<,_state,_cancelFuture,_pending",
+_BufferingStreamSubscription: {"": "Object;_async$_onData,_onError,_onDone,_zone<,_state,_cancelFuture,_pending",
   _setPendingEvents$1: function(pendingEvents) {
     if (pendingEvents == null)
       return;
@@ -3250,7 +3287,7 @@ _BufferingStreamSubscription: {"": "Object;_onData,_onError,_onDone,_zone<,_stat
   },
   onData$1: function(handleData) {
     $.Zone__current.toString;
-    this._onData = handleData;
+    this._async$_onData = handleData;
   },
   onError$1: function(_, handleError) {
     this._onError = P._registerErrorHandler(handleError, $.Zone__current);
@@ -3368,7 +3405,7 @@ _BufferingStreamSubscription: {"": "Object;_onData,_onError,_onDone,_zone<,_stat
   _sendData$1: function(data) {
     var t1 = this._state;
     this._state = (t1 | 32) >>> 0;
-    this._zone.runUnaryGuarded$2(this._onData, data);
+    this._zone.runUnaryGuarded$2(this._async$_onData, data);
     this._state = (this._state & 4294967263) >>> 0;
     this._checkState$1((t1 & 4) !== 0);
   },
@@ -4339,24 +4376,40 @@ _HashSet: {"": "_HashSetBase;",
     return J.$index$asx(bucket, index);
   },
   add$1: function(_, element) {
-    var rest, hash, bucket;
-    rest = this._rest;
-    if (rest == null) {
-      rest = P._HashSet__newHashTable();
-      this._rest = rest;
+    var strings, nums, rest, hash, bucket;
+    if (typeof element === "string" && element !== "__proto__") {
+      strings = this._strings;
+      if (strings == null) {
+        strings = P._HashSet__newHashTable();
+        this._strings = strings;
+      }
+      return this._addHashTableEntry$2(strings, element);
+    } else if (typeof element === "number" && (element & 0x3ffffff) === element) {
+      nums = this._nums;
+      if (nums == null) {
+        nums = P._HashSet__newHashTable();
+        this._nums = nums;
+      }
+      return this._addHashTableEntry$2(nums, element);
+    } else {
+      rest = this._rest;
+      if (rest == null) {
+        rest = P._HashSet__newHashTable();
+        this._rest = rest;
+      }
+      hash = this._computeHashCode$1(element);
+      bucket = rest[hash];
+      if (bucket == null)
+        rest[hash] = [element];
+      else {
+        if (this._findBucketIndex$2(bucket, element) >= 0)
+          return false;
+        bucket.push(element);
+      }
+      this._collection$_length = this._collection$_length + 1;
+      this._elements = null;
+      return true;
     }
-    hash = this._computeHashCode$1(element);
-    bucket = rest[hash];
-    if (bucket == null)
-      rest[hash] = [element];
-    else {
-      if (this._findBucketIndex$2(bucket, element) >= 0)
-        return false;
-      bucket.push(element);
-    }
-    this._collection$_length = this._collection$_length + 1;
-    this._elements = null;
-    return true;
   },
   remove$1: function(_, object) {
     var rest, bucket, index;
@@ -4412,6 +4465,14 @@ _HashSet: {"": "_HashSetBase;",
     }
     this._elements = result;
     return result;
+  },
+  _addHashTableEntry$2: function(table, element) {
+    if (table[element] != null)
+      return false;
+    table[element] = 0;
+    this._collection$_length = this._collection$_length + 1;
+    this._elements = null;
+    return true;
   },
   _computeHashCode$1: function(element) {
     return J.get$hashCode$(element) & 0x3ffffff;
@@ -4790,7 +4851,89 @@ NoSuchMethodError_toString_closure: {"": "Closure;box_0",
   $is_args2: true
 },
 
-Duration: {"": "Object;_duration",
+DateTime: {"": "Object;millisecondsSinceEpoch,isUtc",
+  $eq: function(_, other) {
+    var t1;
+    if (other == null)
+      return false;
+    t1 = J.getInterceptor(other);
+    if (typeof other !== "object" || other === null || !t1.$isDateTime)
+      return false;
+    return this.millisecondsSinceEpoch === other.millisecondsSinceEpoch && this.isUtc === other.isUtc;
+  },
+  get$hashCode: function(_) {
+    return this.millisecondsSinceEpoch;
+  },
+  toString$0: function(_) {
+    var t1, y, m, d, h, min, sec, ms;
+    t1 = new P.DateTime_toString_twoDigits();
+    y = new P.DateTime_toString_fourDigits().call$1(H.Primitives_getYear(this));
+    m = t1.call$1(H.Primitives_getMonth(this));
+    d = t1.call$1(H.Primitives_getDay(this));
+    h = t1.call$1(H.Primitives_getHours(this));
+    min = t1.call$1(H.Primitives_getMinutes(this));
+    sec = t1.call$1(H.Primitives_getSeconds(this));
+    ms = new P.DateTime_toString_threeDigits().call$1(H.Primitives_getMilliseconds(this));
+    if (this.isUtc)
+      return H.S(y) + "-" + H.S(m) + "-" + H.S(d) + " " + H.S(h) + ":" + H.S(min) + ":" + H.S(sec) + "." + H.S(ms) + "Z";
+    else
+      return H.S(y) + "-" + H.S(m) + "-" + H.S(d) + " " + H.S(h) + ":" + H.S(min) + ":" + H.S(sec) + "." + H.S(ms);
+  },
+  difference$1: function(other) {
+    return P.Duration$(0, 0, 0, this.millisecondsSinceEpoch - other.millisecondsSinceEpoch, 0, 0);
+  },
+  DateTime$_now$0: function() {
+    H.Primitives_lazyAsJsDate(this);
+  },
+  $isDateTime: true,
+  static: {
+"": "DateTime_MONDAY,DateTime_TUESDAY,DateTime_WEDNESDAY,DateTime_THURSDAY,DateTime_FRIDAY,DateTime_SATURDAY,DateTime_SUNDAY,DateTime_DAYS_PER_WEEK,DateTime_JANUARY,DateTime_FEBRUARY,DateTime_MARCH,DateTime_APRIL,DateTime_MAY,DateTime_JUNE,DateTime_JULY,DateTime_AUGUST,DateTime_SEPTEMBER,DateTime_OCTOBER,DateTime_NOVEMBER,DateTime_DECEMBER,DateTime_MONTHS_PER_YEAR,DateTime__MAX_MILLISECONDS_SINCE_EPOCH",
+DateTime$_now: function() {
+  var t1 = new P.DateTime(Date.now(), false);
+  t1.DateTime$_now$0();
+  return t1;
+}}
+
+},
+
+DateTime_toString_fourDigits: {"": "Closure;",
+  call$1: function(n) {
+    var absN, sign;
+    absN = J.abs$0$n(n);
+    sign = n < 0 ? "-" : "";
+    if (absN >= 1000)
+      return H.S(n);
+    if (absN >= 100)
+      return sign + "0" + H.S(absN);
+    if (absN >= 10)
+      return sign + "00" + H.S(absN);
+    return sign + "000" + H.S(absN);
+  },
+  $is_args1: true
+},
+
+DateTime_toString_threeDigits: {"": "Closure;",
+  call$1: function(n) {
+    var t1 = J.getInterceptor$n(n);
+    if (t1.$ge(n, 100))
+      return H.S(n);
+    if (t1.$ge(n, 10))
+      return "0" + H.S(n);
+    return "00" + H.S(n);
+  },
+  $is_args1: true
+},
+
+DateTime_toString_twoDigits: {"": "Closure;",
+  call$1: function(n) {
+    if (J.$ge$n(n, 10))
+      return H.S(n);
+    return "0" + H.S(n);
+  },
+  $is_args1: true
+},
+
+Duration: {"": "Object;_duration<",
   $lt: function(_, other) {
     return C.JSNumber_methods.$lt(this._duration, other.get$_duration());
   },
@@ -4798,7 +4941,7 @@ Duration: {"": "Object;_duration",
     return C.JSNumber_methods.$gt(this._duration, other.get$_duration());
   },
   $ge: function(_, other) {
-    return C.JSNumber_methods.$ge(this._duration, other.get$_duration());
+    return this._duration >= other.get$_duration();
   },
   $eq: function(_, other) {
     var t1;
@@ -5111,9 +5254,15 @@ CanvasElement: {"": "HtmlElement;height},width%",
 
 CanvasRenderingContext: {"": "Interceptor;", "%": "WebGLRenderingContext;CanvasRenderingContext"},
 
-CanvasRenderingContext2D: {"": "CanvasRenderingContext;",
+CanvasRenderingContext2D: {"": "CanvasRenderingContext;fillStyle}",
   save$0: function(receiver) {
     return receiver.save();
+  },
+  fillText$4: function(receiver, text, x, y, maxWidth) {
+    receiver.fillText(text, x, y);
+  },
+  fillText$3: function($receiver, text, x, y) {
+    return this.fillText$4($receiver, text, x, y, null);
   },
   "%": "CanvasRenderingContext2D"
 },
@@ -5136,9 +5285,17 @@ EmbedElement: {"": "HtmlElement;height},width%", "%": "HTMLEmbedElement"},
 
 ErrorEvent: {"": "Event;error=", "%": "ErrorEvent"},
 
-Event: {"": "Interceptor;", "%": "AudioProcessingEvent|AutocompleteErrorEvent|BeforeLoadEvent|BeforeUnloadEvent|CSSFontFaceLoadEvent|CloseEvent|CompositionEvent|CustomEvent|DeviceMotionEvent|DeviceOrientationEvent|DragEvent|FocusEvent|HashChangeEvent|IDBVersionChangeEvent|KeyboardEvent|MIDIConnectionEvent|MIDIMessageEvent|MSPointerEvent|MediaKeyEvent|MediaKeyMessageEvent|MediaKeyNeededEvent|MediaStreamEvent|MediaStreamTrackEvent|MessageEvent|MouseEvent|MouseScrollEvent|MouseWheelEvent|MutationEvent|OfflineAudioCompletionEvent|OverflowEvent|PageTransitionEvent|PointerEvent|PopStateEvent|ProgressEvent|RTCDTMFToneChangeEvent|RTCDataChannelEvent|RTCIceCandidateEvent|ResourceProgressEvent|SVGZoomEvent|SecurityPolicyViolationEvent|SpeechInputEvent|SpeechRecognitionEvent|SpeechSynthesisEvent|StorageEvent|TextEvent|TouchEvent|TrackEvent|TransitionEvent|UIEvent|WebGLContextEvent|WebKitAnimationEvent|WebKitTransitionEvent|WheelEvent|XMLHttpRequestProgressEvent;Event"},
+Event: {"": "Interceptor;", "%": "AudioProcessingEvent|AutocompleteErrorEvent|BeforeLoadEvent|BeforeUnloadEvent|CSSFontFaceLoadEvent|CloseEvent|CustomEvent|DeviceMotionEvent|DeviceOrientationEvent|HashChangeEvent|IDBVersionChangeEvent|MIDIConnectionEvent|MIDIMessageEvent|MediaKeyEvent|MediaKeyMessageEvent|MediaKeyNeededEvent|MediaStreamEvent|MediaStreamTrackEvent|MessageEvent|MutationEvent|OfflineAudioCompletionEvent|OverflowEvent|PageTransitionEvent|PopStateEvent|ProgressEvent|RTCDTMFToneChangeEvent|RTCDataChannelEvent|RTCIceCandidateEvent|ResourceProgressEvent|SecurityPolicyViolationEvent|SpeechInputEvent|SpeechRecognitionEvent|SpeechSynthesisEvent|StorageEvent|TrackEvent|TransitionEvent|WebGLContextEvent|WebKitAnimationEvent|WebKitTransitionEvent|XMLHttpRequestProgressEvent;Event"},
 
-EventTarget: {"": "Interceptor;", "%": "MediaStream;EventTarget"},
+EventTarget: {"": "Interceptor;",
+  addEventListener$3: function(receiver, type, listener, useCapture) {
+    return receiver.addEventListener(type, H.convertDartClosureToJS(listener, 1), useCapture);
+  },
+  removeEventListener$3: function(receiver, type, listener, useCapture) {
+    return receiver.removeEventListener(type, H.convertDartClosureToJS(listener, 1), useCapture);
+  },
+  "%": "MediaStream;EventTarget"
+},
 
 FormElement: {"": "HtmlElement;length=", "%": "HTMLFormElement"},
 
@@ -5149,6 +5306,8 @@ ImageElement: {"": "HtmlElement;height},width%", "%": "HTMLImageElement"},
 InputElement: {"": "HtmlElement;height},width%", "%": "HTMLInputElement"},
 
 MediaElement: {"": "HtmlElement;error=", "%": "HTMLAudioElement;HTMLMediaElement"},
+
+MouseEvent: {"": "UIEvent;", "%": "DragEvent|MSPointerEvent|MouseEvent|MouseScrollEvent|MouseWheelEvent|PointerEvent|WheelEvent"},
 
 Node: {"": "EventTarget;",
   toString$0: function(receiver) {
@@ -5163,6 +5322,8 @@ ObjectElement: {"": "HtmlElement;height},width%", "%": "HTMLObjectElement"},
 SelectElement: {"": "HtmlElement;length=", "%": "HTMLSelectElement"},
 
 SpeechRecognitionError: {"": "Event;error=", "%": "SpeechRecognitionError"},
+
+UIEvent: {"": "Event;", "%": "CompositionEvent|FocusEvent|KeyboardEvent|SVGZoomEvent|TextEvent|TouchEvent;UIEvent"},
 
 VideoElement: {"": "MediaElement;height},width%", "%": "HTMLVideoElement"},
 
@@ -5213,6 +5374,41 @@ Window_animationFrame_closure: {"": "Closure;completer_0",
     t1._asyncComplete$1(time);
   },
   $is_args1: true
+},
+
+EventStreamProvider: {"": "Object;_eventType"},
+
+_EventStream: {"": "Stream;",
+  listen$4$cancelOnError$onDone$onError: function(onData, cancelOnError, onDone, onError) {
+    var t1 = new W._EventStreamSubscription(0, this._target, this._eventType, W._wrapZone(onData), this._useCapture);
+    H.setRuntimeTypeInfo(t1, [H.getRuntimeTypeArgument(this, "_EventStream", 0)]);
+    t1._tryResume$0();
+    return t1;
+  },
+  $asStream: null
+},
+
+_ElementEventStreamImpl: {"": "_EventStream;_target,_eventType,_useCapture", $as_EventStream: null},
+
+_EventStreamSubscription: {"": "StreamSubscription;_pauseCount,_target,_eventType,_onData,_useCapture",
+  cancel$0: function() {
+    if (this._target == null)
+      return;
+    this._unlisten$0();
+    this._target = null;
+    this._onData = null;
+  },
+  _tryResume$0: function() {
+    var t1 = this._onData;
+    if (t1 != null && this._pauseCount <= 0)
+      J.addEventListener$3$x(this._target, this._eventType, t1, this._useCapture);
+  },
+  _unlisten$0: function() {
+    var t1 = this._onData;
+    if (t1 != null)
+      J.removeEventListener$3$x(this._target, this._eventType, t1, this._useCapture);
+  },
+  $asStreamSubscription: null
 }}],
 ["dart.dom.svg", "dart:svg", , P, {
 FEBlendElement: {"": "SvgElement;width=", "%": "SVGFEBlendElement"},
@@ -5328,8 +5524,8 @@ TypedData_ListMixin: {"": "TypedData+ListMixin;", $isList: true, $asList: null, 
 
 TypedData_ListMixin_FixedLengthListMixin: {"": "TypedData_ListMixin+FixedLengthListMixin;", $asList: null}}],
 ["doge", "classes/Doge.dart", , S, {
-Doge: {"": "Object;dogeId,pos,image,maxSpeed,lateralMoveSpeed,verticalMoveSpeed,rotation,rotationSpeed",
-  updateAndRender$1: function(context) {
+Doge: {"": "Object;rId,pos,image,maxSpeed,lateralMoveSpeed,verticalMoveSpeed,rotation,rotationSpeed",
+  update$1: function(context) {
     var t1, t2, t3;
     t1 = this.pos.x;
     t2 = window.innerWidth;
@@ -5363,6 +5559,9 @@ Doge: {"": "Object;dogeId,pos,image,maxSpeed,lateralMoveSpeed,verticalMoveSpeed,
     if (typeof t1 !== "number")
       throw H.iae(t1);
     t3.y = t2 + t1;
+  },
+  updateAndRender$1: function(context) {
+    this.update$1(context);
     this.render$1(context);
   },
   render$1: function(context) {
@@ -5402,7 +5601,7 @@ Doge: {"": "Object;dogeId,pos,image,maxSpeed,lateralMoveSpeed,verticalMoveSpeed,
   Doge$3: function(id, imageName, startPos) {
     this.rotationSpeed = Math.random() * 0.06981317007977318;
     this.calculateMoveSpeed$0();
-    this.dogeId = id;
+    this.rId = id;
     this.image = document.querySelector("#" + imageName);
     this.pos = startPos;
   },
@@ -5415,12 +5614,36 @@ Doge$: function(id, imageName, startPos) {
 
 }}],
 ["dogeFactory", "classes/DogeFactory.dart", , Z, {
-DogeFactory: {"": "Object;images"}}],
+DogeFactory: {"": "Object;images",
+  createDoge$1: function(id) {
+    var t1, t2, t3, t4;
+    t1 = this.images.imageNames;
+    t2 = C.C__Random.nextInt$1(t1.length);
+    if (t2 < 0 || t2 >= t1.length)
+      throw H.ioore(t1, t2);
+    t2 = t1[t2];
+    t1 = C.C__Random.nextInt$1(window.innerWidth);
+    t3 = C.C__Random.nextInt$1(window.innerHeight);
+    t4 = new V.Coord(0, 0);
+    t4.x = t1;
+    t4.y = t3;
+    return S.Doge$(id, t2, t4);
+  }
+}}],
 ["", "dogedogedoge.dart", , E, {
 main: function() {
+  var t1, t2;
   $.c = document.querySelector("#canvas");
   $.ctx = J.getContext$1$x($.c, "2d");
-  $.p = A.Pound$withDoges(25);
+  t1 = $.c;
+  t1.toString;
+  t1 = new W._ElementEventStreamImpl(t1, C.EventStreamProvider_click._eventType, false);
+  H.setRuntimeTypeInfo(t1, [null]);
+  t2 = new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(E.clickEvent$closure), t1._useCapture);
+  H.setRuntimeTypeInfo(t2, [H.getRuntimeTypeArgument(t1, "_EventStream", 0)]);
+  t2._tryResume$0();
+  $.p = A.Pound$withDoges(16);
+  $.t = R.TextRenderer$withTextItems(7);
   J.set$width$x($.c, window.innerWidth);
   J.set$height$x($.c, window.innerHeight);
   C.Window_methods.get$animationFrame(window).then$1(E.draw$closure);
@@ -5430,16 +5653,32 @@ draw: function(_) {
   J.set$width$x($.c, window.innerWidth);
   J.set$height$x($.c, window.innerHeight);
   $.p.update$1($.ctx);
+  $.t.update$1($.ctx);
   C.Window_methods.get$animationFrame(window).then$1(E.draw$closure);
+},
+
+clickEvent: function(me) {
+  $.p.addNew$0();
 }},
 1],
 ["imageList", "classes/ImageList.dart", , U, {
 ImageList: {"": "Object;imageNames"}}],
 ["pound", "classes/Pound.dart", , A, {
-Pound: {"": "Object;doges",
+Pound: {"": "Object;items",
+  addNew$0: function() {
+    var t1, t2;
+    t1 = P.List_List(null, J.JSString);
+    H.setRuntimeTypeInfo(t1, [J.JSString]);
+    t1 = new U.ImageList(t1);
+    t2 = t1.imageNames;
+    t2.push("dogeOne");
+    t2.push("dogeTwo");
+    t2 = this.items;
+    t2.push(new Z.DogeFactory(t1).createDoge$1(t2.length));
+  },
   update$1: function(ctx) {
     var t1;
-    for (t1 = this.doges, t1 = new H.ListIterator(t1, t1.length, 0, null); t1.moveNext$0();)
+    for (t1 = this.items, t1 = new H.ListIterator(t1, t1.length, 0, null); t1.moveNext$0();)
       t1._current.updateAndRender$1(ctx);
   },
   Pound$withDoges$1: function(howManyDoges) {
@@ -5450,7 +5689,7 @@ Pound: {"": "Object;doges",
     t2 = t1.imageNames;
     t2.push("dogeOne");
     t2.push("dogeTwo");
-    for (t2 = this.doges, t1 = new Z.DogeFactory(t1).images.imageNames, i = 0; i < howManyDoges; ++i) {
+    for (t2 = this.items, t1 = new Z.DogeFactory(t1).images.imageNames, i = 0; i < howManyDoges; ++i) {
       max = t1.length;
       if (max > 4294967295)
         max = 4294967295;
@@ -5494,6 +5733,159 @@ Pound$withDoges: function(howManyDoges) {
 }}
 
 }}],
+["textblock", "classes/TextBlock.dart", , X, {
+TextBlock: {"": "Object;rId,blockText,pos,maxTextSize,minTextSize,textSize,color",
+  updateAndRender$1: function(context) {
+    this.resetPos$0();
+    this.color = this.getRandomColor$0();
+    this.resetTextSize$0();
+    this.blockText = new K.TextGenerator(["wow"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
+    this.render$1(context);
+  },
+  render$1: function(context) {
+    var t1, t2;
+    J.getInterceptor$x(context).set$fillStyle(context, this.color);
+    context.font = "bold " + C.JSInt_methods.toString$0(this.textSize) + "px Comic Sans MS";
+    t1 = this.blockText;
+    t2 = this.pos;
+    C.CanvasRenderingContext2D_methods.fillText$3(context, t1, t2.x, t2.y);
+  },
+  resetPos$0: function() {
+    var t1, t2, t3;
+    t1 = C.C__Random.nextInt$1(window.innerWidth);
+    t2 = C.C__Random.nextInt$1(window.innerHeight);
+    t3 = new V.Coord(0, 0);
+    t3.x = t1;
+    t3.y = t2;
+    this.pos = t3;
+  },
+  resetTextSize$0: function() {
+    this.textSize = C.C__Random.nextInt$1(this.maxTextSize);
+    var t1 = this.minTextSize;
+    if (this.textSize < t1)
+      this.textSize = t1;
+  },
+  getRandomColor$0: function() {
+    return "#" + C.JSInt_methods.toString$0(C.C__Random.nextInt$1(99)) + C.JSInt_methods.toString$0(C.C__Random.nextInt$1(99)) + C.JSInt_methods.toString$0(C.C__Random.nextInt$1(99));
+  }
+}}],
+["textgenerator", "classes/TextGenerator.dart", , K, {
+TextGenerator: {"": "Object;singleStrings,prefixStrings,suffixStrings,rand",
+  generateText$0: function() {
+    var t1, t2, t3;
+    t1 = this.rand;
+    if (t1.nextInt$1(100) < 20) {
+      t2 = this.singleStrings;
+      t1 = t1.nextInt$1(1);
+      if (t1 < 0 || t1 >= 1)
+        throw H.ioore(t2, t1);
+      return t2[t1];
+    }
+    t2 = this.prefixStrings;
+    t3 = t1.nextInt$1(5);
+    if (t3 < 0 || t3 >= 5)
+      throw H.ioore(t2, t3);
+    t3 = t2[t3] + " ";
+    t2 = this.suffixStrings;
+    t1 = t1.nextInt$1(11);
+    if (t1 < 0 || t1 >= 11)
+      throw H.ioore(t2, t1);
+    return t3 + t2[t1];
+  }
+}}],
+["textrenderer", "classes/TextRenderer.dart", , R, {
+TextRenderer: {"": "Object;items,lastUpdateTime,updateInterval,renderedCount,currentItem",
+  addNew$0: function() {
+    var t1, t2, t3, t4, max, t5, t6;
+    t1 = this.items;
+    t2 = t1.length;
+    t3 = new K.TextGenerator(["wow"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
+    t4 = window.innerWidth;
+    if (typeof t4 !== "number")
+      throw t4.$lt();
+    if (t4 < 0)
+      H.throwExpression(new P.ArgumentError("negative max: " + t4));
+    if (t4 > 4294967295)
+      max = 4294967295;
+    else
+      max = t4;
+    t4 = Math.random() * max >>> 0;
+    t5 = window.innerHeight;
+    if (typeof t5 !== "number")
+      throw t5.$lt();
+    if (t5 < 0)
+      H.throwExpression(new P.ArgumentError("negative max: " + t5));
+    if (t5 > 4294967295)
+      max = 4294967295;
+    else
+      max = t5;
+    t5 = Math.random() * max >>> 0;
+    t6 = new V.Coord(0, 0);
+    t6.x = t4;
+    t6.y = t5;
+    t5 = new X.TextBlock(0, "", null, 88, 24, 0, null);
+    t5.rId = t2;
+    t5.blockText = t3;
+    t5.pos = t6;
+    t5.color = t5.getRandomColor$0();
+    max = t5.maxTextSize;
+    if (max < 0)
+      H.throwExpression(new P.ArgumentError("negative max: " + max));
+    if (max > 4294967295)
+      max = 4294967295;
+    t5.textSize = Math.random() * max >>> 0;
+    t2 = t5.minTextSize;
+    if (t5.textSize < t2)
+      t5.textSize = t2;
+    t1.push(t5);
+  },
+  update$1: function(ctx) {
+    var t1, t2, i, t3, t4, t5;
+    if (P.DateTime$_now().difference$1(this.lastUpdateTime)._duration >= this.updateInterval._duration) {
+      t1 = this.items;
+      t2 = this.currentItem;
+      if (t2 < 0 || t2 >= t1.length)
+        throw H.ioore(t1, t2);
+      t2 = t1[t2];
+      t2.resetPos$0();
+      t2.color = t2.getRandomColor$0();
+      t2.resetTextSize$0();
+      t2.blockText = new K.TextGenerator(["wow"], ["such", "many", "very", "so", "much"], ["doge", "coin", "dogecoin", "rich", "poor", "doges", "money", "moon", "wisdom", "rise", "round"], C.C__Random).generateText$0();
+      t2 = this.currentItem;
+      this.currentItem = t2 === t1.length - 1 ? 0 : t2 + 1;
+      t2 = this.renderedCount;
+      this.renderedCount = t2 === t1.length - 1 ? t2 : t2 + 1;
+      this.lastUpdateTime = P.DateTime$_now();
+    }
+    for (t1 = this.items, t2 = J.getInterceptor$x(ctx), i = 0; i < this.renderedCount; ++i) {
+      if (i >= t1.length)
+        throw H.ioore(t1, i);
+      t3 = t1[i];
+      t2.set$fillStyle(ctx, t3.color);
+      ctx.font = "bold " + C.JSInt_methods.toString$0(t3.textSize) + "px Comic Sans MS";
+      t4 = t3.blockText;
+      t3 = t3.pos;
+      t5 = t3.x;
+      t3 = t3.y;
+      ctx.fillText(t4, t5, t3);
+    }
+  },
+  TextRenderer$withTextItems$1: function(itemCount) {
+    var i;
+    this.lastUpdateTime = P.DateTime$_now();
+    for (i = 0; i < itemCount; ++i)
+      this.addNew$0();
+  },
+  static: {
+TextRenderer$withTextItems: function(itemCount) {
+  var t1 = P.List_List(null, X.TextBlock);
+  H.setRuntimeTypeInfo(t1, [X.TextBlock]);
+  t1 = new R.TextRenderer(t1, null, P.Duration$(0, 0, 0, 500, 0, 0), 0, 0);
+  t1.TextRenderer$withTextItems$1(itemCount);
+  return t1;
+}}
+
+}}],
 ]);
 Isolate.$finishClasses($$, $, null);
 $$ = null;
@@ -5512,6 +5904,7 @@ init.globalFunctions.identical$closure = P.identical$closure = new H.Closure$2(P
 init.globalFunctions.identityHashCode$closure = P.identityHashCode$closure = new P.Closure$1(P.identityHashCode, "identityHashCode$closure");
 init.globalFunctions.main$closure = E.main$closure = new H.Closure$0(E.main, "main$closure");
 init.globalFunctions.draw$closure = E.draw$closure = new P.Closure$1(E.draw, "draw$closure");
+init.globalFunctions.clickEvent$closure = E.clickEvent$closure = new P.Closure$1(E.clickEvent, "clickEvent$closure");
 // Runtime type support
 J.JSInt.$isint = true;
 J.JSInt.$isnum = true;
@@ -5521,6 +5914,9 @@ J.JSString.$isObject = true;
 J.JSNumber.$isnum = true;
 J.JSNumber.$isObject = true;
 P.Duration.$isObject = true;
+W.MouseEvent.$isMouseEvent = true;
+W.MouseEvent.$isObject = true;
+X.TextBlock.$isObject = true;
 S.Doge.$isObject = true;
 P.ReceivePort.$isObject = true;
 H._IsolateEvent.$isObject = true;
@@ -5528,9 +5924,9 @@ H._IsolateContext.$isObject = true;
 J.JSArray.$isObject = true;
 P.Symbol.$isSymbol = true;
 P.Symbol.$isObject = true;
-P.Object.$isObject = true;
 P.StackTrace.$isStackTrace = true;
 P.StackTrace.$isObject = true;
+P.Object.$isObject = true;
 P.Function.$isFunction = true;
 P.Function.$isObject = true;
 J.JSBool.$isbool = true;
@@ -5616,7 +6012,9 @@ J.getInterceptor$x = function(receiver) {
 C.C__DelayedDone = new P._DelayedDone();
 C.C__Random = new P._Random();
 C.C__RootZone = new P._RootZone();
+C.CanvasRenderingContext2D_methods = W.CanvasRenderingContext2D.prototype;
 C.Duration_0 = new P.Duration(0);
+C.EventStreamProvider_click = new W.EventStreamProvider("click");
 C.JSArray_methods = J.JSArray.prototype;
 C.JSInt_methods = J.JSInt.prototype;
 C.JSNumber_methods = J.JSNumber.prototype;
@@ -5764,6 +6162,7 @@ $.Expando__keyCount = 0;
 $.c = null;
 $.ctx = null;
 $.p = null;
+$.t = null;
 $.Device__isOpera = null;
 $.Device__isWebKit = null;
 J.$eq = function(receiver, a0) {
@@ -5789,6 +6188,12 @@ J.$indexSet$ax = function(receiver, a0, a1) {
     return receiver[a0] = a1;
   return J.getInterceptor$ax(receiver).$indexSet(receiver, a0, a1);
 };
+J.abs$0$n = function(receiver) {
+  return J.getInterceptor$n(receiver).abs$0(receiver);
+};
+J.addEventListener$3$x = function(receiver, a0, a1, a2) {
+  return J.getInterceptor$x(receiver).addEventListener$3(receiver, a0, a1, a2);
+};
 J.forEach$1$ax = function(receiver, a0) {
   return J.getInterceptor$ax(receiver).forEach$1(receiver, a0);
 };
@@ -5809,6 +6214,9 @@ J.get$width$x = function(receiver) {
 };
 J.getContext$1$x = function(receiver, a0) {
   return J.getInterceptor$x(receiver).getContext$1(receiver, a0);
+};
+J.removeEventListener$3$x = function(receiver, a0, a1, a2) {
+  return J.getInterceptor$x(receiver).removeEventListener$3(receiver, a0, a1, a2);
 };
 J.save$0$x = function(receiver) {
   return J.getInterceptor$x(receiver).save$0(receiver);

@@ -7,7 +7,7 @@ import 'DogeFactory.dart';
 
 class Pound
 {
-  List<Doge> doges = new List<Doge>();
+  List<Doge> items = new List<Doge>();
   
   Pound()
   {
@@ -19,25 +19,25 @@ class Pound
     DogeFactory fact = new DogeFactory();
     for (int i = 0; i < howManyDoges; ++i)
     {
-      doges.add(fact.createDoge(i));
+      items.add(fact.createDoge(i));
     }
   }
   
-  void addNewDoge()
+  void addNew()
   {
     DogeFactory fact = new DogeFactory();
-    doges.add(fact.createDoge(doges.length));
+    items.add(fact.createDoge(items.length));
   }
   
-  void addExistingDoge(Doge d)
+  void addExisting(Doge d)
   {
-    d.dogeId = doges.length;
-    doges.add(d);
+    d.rId = items.length;
+    items.add(d);
   }
   
   void update(CanvasRenderingContext2D ctx)
   {
-    for (Doge d in doges)
+    for (Doge d in items)
     {
       d.updateAndRender(ctx);
     }

@@ -1,3 +1,19 @@
+*
+{
+  cursor: url('cursors/dogeOne.cur'), none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body
+{
+  background: url('backgrounds/dogeOne.jpg');
+}
+
 #canvas
 {
   position:absolute;
@@ -13,4 +29,21 @@
   position:absolute;
   z-index:-100;
   display:none;
+}
+
+#info
+{
+  
+}
+
+#info > p
+{
+  color: red;
+  font-weight: bold;
+  font-family: Comic Sans MS;
+}
+
+#info > a
+{
+  color: lightpurple;
 }

@@ -121,6 +121,11 @@ file:///C:/Users/Tom/Desktop/dart/dart-sdk/lib/web_sql/dart2js/web_sql_dart2js.d
 file:///C:/Users/Tom/Dropbox/Development/WebDev/dogedogedoge/dogedogedoge/web/classes/Coord.dart
 file:///C:/Users/Tom/Dropbox/Development/WebDev/dogedogedoge/dogedogedoge/web/classes/Doge.dart
 file:///C:/Users/Tom/Dropbox/Development/WebDev/dogedogedoge/dogedogedoge/web/classes/DogeFactory.dart
+file:///C:/Users/Tom/Dropbox/Development/WebDev/dogedogedoge/dogedogedoge/web/classes/IRenderable.dart
+file:///C:/Users/Tom/Dropbox/Development/WebDev/dogedogedoge/dogedogedoge/web/classes/IRenderer.dart
 file:///C:/Users/Tom/Dropbox/Development/WebDev/dogedogedoge/dogedogedoge/web/classes/ImageList.dart
 file:///C:/Users/Tom/Dropbox/Development/WebDev/dogedogedoge/dogedogedoge/web/classes/Pound.dart
+file:///C:/Users/Tom/Dropbox/Development/WebDev/dogedogedoge/dogedogedoge/web/classes/TextBlock.dart
+file:///C:/Users/Tom/Dropbox/Development/WebDev/dogedogedoge/dogedogedoge/web/classes/TextGenerator.dart
+file:///C:/Users/Tom/Dropbox/Development/WebDev/dogedogedoge/dogedogedoge/web/classes/TextRenderer.dart
 file:///C:/Users/Tom/Dropbox/Development/WebDev/dogedogedoge/dogedogedoge/web/dogedogedoge.dart
