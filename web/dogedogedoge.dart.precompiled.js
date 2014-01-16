@@ -2164,9 +2164,9 @@ initHooks_closure1: {"": "Closure;prototypeForTag_2",
   $is_args1: true
 }}],
 ["backgroundrenderer", "classes/BackgroundRenderer.dart", , Z, {
-BackgroundRenderer: {"": "Object;",
+BackgroundRenderer: {"": "Object;moonImage",
   render$2: function(ctx, c) {
-    var t1, t2, grd;
+    var t1, t2, grd, t3;
     J.beginPath$0$x(ctx);
     t1 = J.getInterceptor$x(c);
     t2 = t1.get$width(c);
@@ -2182,17 +2182,14 @@ BackgroundRenderer: {"": "Object;",
     ctx.fillRect(0, 0, t1.get$width(c), t1.get$height(c));
     ctx.closePath();
     ctx.beginPath();
-    t2 = t1.get$width(c);
-    if (typeof t2 !== "number")
-      throw t2.$div();
+    t2 = this.moonImage;
+    t3 = t1.get$width(c);
+    if (typeof t3 !== "number")
+      throw t3.$div();
     t1 = t1.get$height(c);
     if (typeof t1 !== "number")
       throw t1.$div();
-    ctx.arc(t2 / 1.3, t1 / 3, t2 / 13, 0, 6.283185307179586, true);
-    ctx.fillStyle = "grey";
-    ctx.globalAlpha = 0.6;
-    ctx.fill();
-    ctx.globalAlpha = 1;
+    ctx.drawImage(t2, t3 / 1.45, t1 / 6);
     ctx.closePath();
   }
 }}],
@@ -5680,7 +5677,9 @@ main: function() {
   t2._tryResume$0();
   $.p = A.Pound$withDoges(16);
   $.t = R.TextRenderer$withTextItems(7);
-  $.b = new Z.BackgroundRenderer();
+  t2 = new Z.BackgroundRenderer(null);
+  t2.moonImage = document.querySelector("#moge");
+  $.b = t2;
   J.set$width$x($.c, window.innerWidth);
   J.set$height$x($.c, window.innerHeight);
   C.Window_methods.get$animationFrame(window).then$1(E.draw$closure);
@@ -9722,7 +9721,8 @@ function dart_precompiled($collectedClasses) {
   if ($desc instanceof Array)
     $desc = $desc[1];
   initHooks_closure1.prototype = $desc;
-  function BackgroundRenderer() {
+  function BackgroundRenderer(moonImage) {
+    this.moonImage = moonImage;
   }
   BackgroundRenderer.builtin$cls = "BackgroundRenderer";
   if (!"name" in BackgroundRenderer)

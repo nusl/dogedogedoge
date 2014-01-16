@@ -5,6 +5,14 @@ import 'dart:math';
 
 class BackgroundRenderer
 {
+  // Image for the moon to render
+  ImageElement moonImage;
+  
+  BackgroundRenderer()
+  {
+    moonImage = document.querySelector('#moge');
+  }
+  
   void render(CanvasRenderingContext2D ctx, CanvasElement c)
   {
     // Background gradient
@@ -25,15 +33,7 @@ class BackgroundRenderer
     // Moon
     ctx.beginPath();
     
-    ctx.arc(c.width / 1.3, c.height / 3, c.width / 13, 0, PI*2, true);
-    
-    ctx.fillStyle = 'grey';
-    
-    ctx.globalAlpha = 0.6;
-    
-    ctx.fill();
-    
-    ctx.globalAlpha = 1;
+    ctx.drawImage(moonImage,c.width / 1.45, c.height / 6);
     
     ctx.closePath();
   }
