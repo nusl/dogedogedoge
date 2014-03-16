@@ -11,6 +11,7 @@ class ImageList
     imageNames.add('dogeOne');
     imageNames.add('dogeTwo');
     imageNames.add('dogeThree');
+    imageNames.add('dogette');
   }
   
   String getRandomImage()

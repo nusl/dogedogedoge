@@ -5705,6 +5705,7 @@ ImageList: {"": "Object;imageNames",
     t1.push("dogeOne");
     t1.push("dogeTwo");
     t1.push("dogeThree");
+    t1.push("dogette");
   },
   static: {
 ImageList$: function() {
